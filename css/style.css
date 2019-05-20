@@ -1,8 +1,8 @@
 .header{
-    font-size:17px;
+    font-size:17px, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 .header .fa{
-    font-size:25px;
+    font-size:25px, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 .showcase{
     background:url('../img/showcase.jpg') no-repeat;
@@ -13,7 +13,7 @@
     color: #fff;
 }
 .showcase h1{
-    font-size: 40px;
+    font-size: 40px, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -24,7 +24,7 @@
     border-color:#f44336;
 }
 .showcase p{
-    font-size:16px;
+    font-size:16px, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     padding-bottom:20px;
 }
 .home{    
