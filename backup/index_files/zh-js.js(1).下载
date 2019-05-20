@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([["locale/widget/zh-js"],{KioD:function(o,a,n){var t=Object.assign||function(o){for(var a=1;a<arguments.length;a++){var n=arguments[a];for(var t in n)Object.prototype.hasOwnProperty.call(n,t)&&(o[t]=n[t])}return o};o.exports={locale:"zh",translations:t({},n("do3W"),n("ws3m")),reactIntlData:n("dVHv")}}}]);
+//# sourceMappingURL=zh-js.js.map

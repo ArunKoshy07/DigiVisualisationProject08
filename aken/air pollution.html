@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset='utf-8' />
+ <title>Display a map</title>
+ <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+ <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js'></script>
+ <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' rel='stylesheet'
+/>
+ <style>
+ body { margin:0; padding:0; }
+ #map { position:absolute; top:0; bottom:0; width:100%; }
+     
+h2,
+h3 {
+  margin: 10px;
+  font-size: 1.2em;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+p {
+  font-size: 0.85em;
+  margin: 10px;
+  text-align: left;
+}
+
+/**
+* Create a position for the map
+* on the page */
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+/**
+* Set rules for how the map overlays
+* (information box and legend) will be displayed
+* on the page. */
+.map-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+  margin-right: 20px;
+  font-family: Arial, sans-serif;
+  overflow: auto;
+  border-radius: 3px;
+}
+
+#features {
+  top: 0;
+  height: 100px;
+  margin-top: 20px;
+  width: 250px;
+}
+
+#legend {
+  padding: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 18px;
+  height: 150px;
+  margin-bottom: 40px;
+  width: 100px;
+}
+
+.legend-key {
+  display: inline-block;
+  border-radius: 20%;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
+ </style>
+</head>
+<body>
+<div id='map'></div>
+     <div id='map'></div>
+<div class='map-overlay' id='features'><h2>European air quality maps of ozone</h2><div id='pd'><p>Ozone, 8-hour mean (MCG/m 3)</p></div></div>
+   
+<div class='map-overlay' id='legend'></div>
+    
+<script>
+mapboxgl.accessToken =
+'pk.eyJ1IjoiYWtlbmpzbSIsImEiOiJjanQzcjNzcTQweGh1NDVwcWo4bm41aGg5In0.OLb8_RjNen5BxZYbqG5c9g'; // Putyour Mapbox Public Access token here
+ // Load a new map in the 'map' HTML div
+ var map = new mapboxgl.Map({
+ container: 'map', // container id
+ style: 'mapbox://styles/akenjsm/cjvvnw8iy4bze1cqq5vftuotb', // style location
+ center: [1.2, 50.5], // starting position [lng, lat]
+ zoom: 4 // starting zoom
+ });
+    
+    // Add zoom and rotation controls to the map.
+  map.addControl(new mapboxgl.NavigationControl());
+    
+    map.on('load', function() {
+  // the rest of the code will go in here
+var layers = ['-9999-33', '34-66', '67-100', '101-120', '121-140', '141-160', '161-170', '171'];
+var colors = ['#FFEDA0', '#FED976', '#FEB24C', '#FD8D3C', '#FC4E2A', '#E31A1C', '#BD0026', '#800026'];
+  for (i = 0; i < layers.length; i++) {
+  var layer = layers[i];
+  var color = colors[i];
+  var item = document.createElement('div');
+  var key = document.createElement('o3_26hdm');
+  key.className = 'legend-key';
+  key.style.backgroundColor = color;
+
+  var value = document.createElement('o3_26hdm');
+  value.innerHTML = layer;
+  item.appendChild(key);
+  item.appendChild(value);
+  legend.appendChild(item);
+}
+});
+</script>
+</body>
+</html>

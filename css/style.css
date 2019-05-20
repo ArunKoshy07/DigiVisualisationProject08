@@ -7,8 +7,8 @@
 .showcase{
     background:url('../img/showcase.jpg') no-repeat;
     background-position: center;    
-    height:500px;
-    widows: 100%;
+    height:600px;
+    widows:100%;
     padding: 140px 100px;
     color: #fff;
 }
@@ -27,13 +27,40 @@
     font-size:16px;
     padding-bottom:20px;
 }
-.home{
+.home{    
     padding:40px 0;
+    height:700px;
 }
 .home h2{
+    font-size:35px;    
     padding:0;
     margin:0;
 }
 .home .fa{
     font-size:50px;
+}
+.air img{
+    width:100%;
+}
+.air .fa{
+    font-size:50px;
+}
+.light .fa{
+    font-size:50px;
+}
+.waste .fa{
+    font-size:50px;
+}
+.noise .fa{
+    font-size:50px;
+}
+.noise iframe{
+    height:800px;
+    width:100%;
+    
+}
+.inference{
+    padding: 140px 100px;
+    height:600px;
+    width=100%;
 }

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <Meta http-equiv="Content-Type" Content="text/html; Charset=utf-8">
+        <Meta http-equiv="Content-Language" Content="zh-CN,en-GB,cn,ch">
+        <Meta name="Kyewords" Lang="EN" Content="InVisibleCities,Urban Mobility,Thoughts on Cities,Event,Regeneration,Mapping,YouBike,Data & Visualization,Case Study,shanghai,taipei">
+        <Meta name="Kyewords" Lang="CH" Content="在看得见的城市,資料視覺化,城市觀點,案例研究,都市更新,活動,城市交通,上海,台北">
+        <Meta name="Robots" Content="All">
+        <Meta name="Author" Content="IVC,在看得见的城市,InVisibleCities">
+        <meta name="description" content="“IVC – InVisibleCities” is an open community dedicated to urban innovation. Our members are from different cities around the world and multiple backgrounds. By working collaboratively we aim to tackle with city’s complex issues, and open up the conversation for the public. With new tools in hands, we believe that cities are to be seen differently, in the way that is more sophisticated, intriguing, and humane. It is in cities that we learn, we engage, and we innovate.-是一個致力於分享城市創新的開放社群，成員來自不同城市、不同專業領域，一同對城市發想並分享洞見。我們替城市中複雜的議題提出觀點，並激發公眾討論。借助於數據分析、人本設計的方法，我們用更細膩、更具啟發性、也更人性化的方式看待城市。我們持續在城市中學習、參與、並創新。"/>
+        <Meta name="Copyright" Content="本页版权归IVC-在看得见的城市所有。All Rights Reserved">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <meta property="og:title" content="IVC InVisibleCities_an cross-regional open community">  
+        <meta property="og:type" content="website">  
+        <meta property="og:image" content="https://ivc.city/images/logo.jpg">  
+        <meta property="og:description" content="IVC – InVisibleCities” is an open community dedicated to urban innovation. Our members are from different cities around the world and multiple backgrounds. By working collaboratively we aim to tackle with city’s complex issues, and open up the conversation for the public. With new tools in hands, we believe that cities are to be seen differently, in the way that is more sophisticated, intriguing, and humane. It is in cities that we learn, we engage, and we innovate."> 
+        <title>
+            IVC InVisibleCities_an cross-regional open community
+        </title>
+        
+        <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="/css/style.min.css" rel="stylesheet"/>
+        <link href="/css/font-awesome.min.css" rel="stylesheet"/>
+        <link href="/css/wow-animate.css" rel="stylesheet"/>
+        <link href="/css/monokai_sublime.min.css" rel="stylesheet"/>
+        <link href="/css/layer-animate.css" rel="stylesheet"/>
+
+        <script src="/js/libs/modernizr-2.6.2-respond-1.1.0.min.js">
+        </script>
+        <script src="/js/libs/highlight.min.js">
+        </script>
+        <script src="/js/libs/jquery.min.js">
+        </script>
+        <script src="/js/libs/jquery.lavalamp.min.js">
+        </script>
+        
+        <script src="/js/libs/bootstrap.min.js">
+        </script>
+		
+		<script>
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?0f0c7b0676726a61fdbca1a85f9331ce";
+                var s = document.getElementsByTagName("script")[0]; 
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+
+    </head>
+</html>
+<body>
+    <div id="top">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+        <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="/" class="navbar-brand scroll-top" onclick="location.href = '/';">IVC InVisibleCities</a>
+    </div>
+    <div id="main-nav" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right menu-nav">
+          
+            
+            
+            <li class="current"><a href="/" style="" >Home</a></li>
+          
+            
+            
+            <li class=""><a href="/project" style="" >Projects</a></li>
+          
+            
+            
+            <li class=""><a href="/blog" style="" >Blog</a></li>
+          
+            
+            
+            <li class=""><a href="javascript:void(0);" style="color:#999999;" >Community</a></li>
+          
+            
+            
+            <li class=""><a href="/about" style="" >About Us</a></li>
+          
+        </ul>
+        <!--  
+        <ul class="nav navbar-nav navbar-right">
+          <div class="language">
+            <a href="/lang/ch" id="icon">中</a> /
+            <a href="/lang/en" id="icon">EN</a> 
+          </div>
+        </ul>
+        <form class="navbar-form navbar-right" style="display: none;">
+          <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon1">
+            <i class="fa fa-search fa-1x"></i></span>
+            <input type="text" class="form-control" placeholder="Search" aria-describedby="sizing-addon1">
+          </div>
+        </form>
+        -->
+    </div>
+    
+   </div>  
+</nav>
+
+    </div>
+    <div class="parallax">
+
+        
+        <!--index-->
+        
+         
+<div class="video-container">
+   <video id="bgvid" autoplay="" loop="" muted="" poster="../images/main.jpg" x5-video-player-type="h5" x5-vide
+o-player-fullscreen="true">
+      <source src="../videos/IVCVideo.mp4" type="video/mp4"> 
+   </video> 
+</div>
+
+<div class="video-container bgcon">
+   
+</div>
+
+<div class="banner-title adaptive">
+    <div class="container">
+       <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
+                <br>
+                    <h1>
+                        IVC is an cross-regional open community.
+                    </h1>
+                    <h2 style="color: #FFF;">
+                       We share insights and ideas on cities, <br>for cities are to be seen differently, in the way that is more <br>sophisticated, intriguing, and humane.
+                    </h2>
+                    <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="service-container">
+   <div class="bg-approach">
+     <div class="container">
+       <div class="row">
+            <hr>
+            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+                <h3>
+                    OUR APPROACH
+                </h3>
+            </div>
+        </div>
+    </div>        
+</div>
+<div class="server-arrow">
+  <div class="arrow-left">
+  </div>
+  <div class="arrow-right">
+  </div>
+</div>
+
+<div class="bg-service">
+    
+    <div class="container">
+            <div class="row">
+                
+                <div class="col-md-3 col-sm-6 text-center animate-box">
+                    <div class="services">
+                       <object data="images/Question_110px.svg" type="image/svg+xml"></object>
+                        <div class="desc">
+                            <h2>Ask Critical <br>Questions</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 text-center animate-box">
+                    <div class="services">
+                       <object data="images/Research_110px.svg" type="image/svg+xml"></object>
+                        <div class="desc">
+                            <h2>Research from <br>Multiple Angle</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 text-center animate-box">
+                    <div class="services">
+                       <object data="images/Insights_110px.svg" type="image/svg+xml"></object>
+                        <div class="desc">
+                            <h2>Share Insights <br>and Findings</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 text-center animate-box">
+                    <div class="services">
+                       <object data="images/Strategy_110px.svg" type="image/svg+xml"></object>
+                        <div class="desc">
+                            <h2>Propose Ideas <br>and Strategies</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                </div>
+                <div class="row section-text" style="text-align: center;">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="stroked-button">
+                        <a href="/about">
+                            More About Us
+                        </a>
+                    </div>
+                    <br>
+                </div>
+            </div>
+            </div>
+        </div>
+</div>
+ 
+ 
+
+<div class="project-container">
+<div class="bg-approach">
+     <div class="container">
+       <div class="row">
+            <hr>
+            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+                <h3 style="color:#000;">
+                    IVC PROJECTS
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="carousel" id="myCarousel">
+    <ol class="carousel-indicators">
+        
+        
+        
+         
+        
+        
+        
+        <li class="active" data-slide-to="0" data-target="#myCarousel">
+        </li>
+        
+        
+        
+        
+        <li class="" data-slide-to="0" data-target="#myCarousel">
+        </li>
+        
+        
+        
+        
+        <li class="" data-slide-to="0" data-target="#myCarousel">
+        </li>
+        
+    </ol>
+    <div class="carousel-inner">
+
+        
+        
+         
+        
+        
+        <div class="item active" style="background-image: url('/upload/1511597909095.jpg') ;background-repeat: no-repeat;background-size: cover;">                
+                <div class="carousel-caption">
+                    <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
+                        <div class="right-caption animated fadeInRight">
+                            <h3>
+                                Shareable Community
+                            </h3>
+                            <span>shanghai</span>
+                            <div class="info">
+                               <p>Speaking of Shanghai, people tend to think of its exotic French concession, vibrant street life, and cultural activities. Xinhua community, is one of the kind consists all above.</p><p>Due to Xinhua's close proximity to city center and relatively low living cost and attracts young creative working class to settle in and become the "new locals".</p><p>The project mapped the lifestyles of the "new locals" according to preferable Point of Interest (Baidu POI), cycling routes (MoBike data), living concentration (demographic & house price data) to identify community reusable space and space structure.</p><p>By creating shareable community hubs, better cluster linkages, and an online neighborhood platform, residents, administrators, and public sectors can work together to improve the neighborhood.</p>
+                            </div>
+                            <br>
+                            <a href="/project/shareable-community">
+                               See Project
+                            </a>
+                            <br>
+                        </div>
+                    </div>
+                </div>           
+        </div>
+        
+        
+        
+        <div class="item " style="background-image: url('/upload/1511597776656.jpg') ;background-repeat: no-repeat;background-size: cover;">                
+                <div class="carousel-caption">
+                    <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
+                        <div class="right-caption animated fadeInRight">
+                            <h3>
+                                YouBike+
+                            </h3>
+                            <span>taipei</span>
+                            <div class="info">
+                               <p>YouBike is Taipei's well-established city bike system. Many cities in the world had introduced similar city bike systems but few achieved financial sustainability.</p><p>However, the emerging trend - the "bike as you go" model such as OBike, and China's MoBike, ofo - had revolutionized the imagination of public bike. How can the fixed-station model like YouBike face the new challenge?</p><p>What if we can take advantage of the space of the fixed bike stations? What if we can offer more value at those stations? and How can the stations better respond to the city's needs?</p><p>By analyzing open data of nearly 300 stations in Taipei, accompanied with field study on how citizens use the bikes, the project suggested alternative possibilities of the bike stations.</p>
+                            </div>
+                            <br>
+                            <a href="/project/youbike-plus">
+                               See Project
+                            </a>
+                            <br>
+                        </div>
+                    </div>
+                </div>           
+        </div>
+        
+        
+        
+        <div class="item " style="background-image: url('/upload/1511597458205.jpg') ;background-repeat: no-repeat;background-size: cover;">                
+                <div class="carousel-caption">
+                    <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
+                        <div class="right-caption animated fadeInRight">
+                            <h3>
+                                Passive Space Remake
+                            </h3>
+                            <span>taipei</span>
+                            <div class="info">
+                               <p>Taipei City, the capital of Taiwan, is the congestion of domestic companies, work opportunities, urban activities, and urban life. Like many other capital cities, Taipei’s living cost is higher than average of the nation, including the affordability of owning a piece of space.</p><p>However, given the city’s rather long history of development, Taipei’s urban fabric has grown organically and complex, accompanied with modern issues like aging buildings, tangled or unclear land and property ownerships, etc.</p><p>If you happened to have lived in Taipei, you might find that, on one hand, it’s luxurious and costly to own a space in the city, while on the other hand, many of its urban space were, in fact, underutilized or passively used. These seemly contradicting facts made us wonder: are the urban space in their best use? where are space that need improvement? and how might we better use them?</p>
+                            </div>
+                            <br>
+                            <a href="/project/passive-space-remake">
+                               See Project
+                            </a>
+                            <br>
+                        </div>
+                    </div>
+                </div>           
+        </div>
+        
+    </div>
+    <a class="left carousel-control" data-slide="prev" href="#myCarousel">
+        <i class="fa fa-chevron-left glyphicon-chevron-left" aria-hidden="true"></i>
+    </a>
+    <a class="right carousel-control" data-slide="next" href="#myCarousel">
+        <i class="fa fa-chevron-right glyphicon-chevron-right" aria-hidden="true"></i>
+    </a>
+    <div class="container-arrow"></div>
+</div>
+<div style="padding: 60px 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="stroked-button">
+                        <a href="/project">
+                            See All Projects
+                        </a>
+                    </div>
+                    <br>
+                </div>
+        </div>
+    </div>
+</div>
+   
+</div>
+
+ 
+
+
+
+<div class="blog-container">
+
+<div class="bg-approach">
+     <div class="container">
+       <div class="row">
+            <hr>
+            <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+                <h3 style="color:#000;">
+                    OUR LATEST
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="no-padding">
+   <div class="container-fluid">
+            
+            <div class="row no-gutter popup-gallery">
+                
+                
+                <a href="/blog/article/myway-eng">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    
+                        <div class="img-fluid" style="background-image: url('/upload/1514278307643.gif') ;background-repeat: no-repeat;background-size: cover;background-color: #666;"> </div>                       
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <a href="/blog/article/myway-eng" class="portfolio-box"><h3>MyWay: A contextual way-finding</h3></a>
+                                <p>
+                                    May 30, 2017 by IVC
+                                </p>
+                                
+                            </div>
+                        
+                        </div>
+                    
+                </div>
+                </a>
+                 
+                <a href="/blog/article/youbikeplus-eng">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    
+                        <div class="img-fluid" style="background-image: url('/upload/1511597146209.gif') ;background-repeat: no-repeat;background-size: cover;background-color: #666;"> </div>                       
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <a href="/blog/article/youbikeplus-eng" class="portfolio-box"><h3>YouBike+: Reimagine the Alternatives of Taipei’s City Bike</h3></a>
+                                <p>
+                                    May 12, 2017 by IVC
+                                </p>
+                                
+                            </div>
+                        
+                        </div>
+                    
+                </div>
+                </a>
+                 
+                <a href="/blog/article/passivespace-eng">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    
+                        <div class="img-fluid" style="background-image: url('/upload/1514025993592.gif') ;background-repeat: no-repeat;background-size: cover;background-color: #666;"> </div>                       
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <a href="/blog/article/passivespace-eng" class="portfolio-box"><h3>Passive Space Remake</h3></a>
+                                <p>
+                                    May 10, 2017 by IVC
+                                </p>
+                                
+                            </div>
+                        
+                        </div>
+                    
+                </div>
+                </a>
+                 
+                <a href="/blog/article/invisibletaipei-sharing-eng">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    
+                        <div class="img-fluid" style="background-image: url('/upload/1514008329240.jpg') ;background-repeat: no-repeat;background-size: cover;background-color: #666;"> </div>                       
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <a href="/blog/article/invisibletaipei-sharing-eng" class="portfolio-box"><h3>&lt;InVisibleTaipei&gt; Sharing Event Keynote &amp; Video</h3></a>
+                                <p>
+                                    Apr 04, 2017 by IVC
+                                </p>
+                                
+                            </div>
+                        
+                        </div>
+                    
+                </div>
+                </a>
+                 
+                
+            </div>
+        </div> 
+        <div class="container-arrow"></div>
+</div>
+<div style="text-align: center;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="stroked-button">
+                        <a href="/blog">
+                            See All Articles
+                        </a>
+                    </div>
+                    <br>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div class="contact-section">
+
+    <div class="container">
+        <hr>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-4 col-sm-6 section-text">
+                    <h3>
+                        INTERESTED?
+                    </h3>
+                    <h2>
+                        There are various ways to take part in city innovation with us.You can either support on projects, or join our talent networks, or simply contact us.
+                    </h2>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 section-text">
+                    <div class="thumbnail" style="border: none;">
+                        <h3>
+                            Support Us
+                        </h3>
+                        <p>
+                            Got some data in hands and want to share for a better city making? Have a great research topic and looking for partnership? Other resource you feel like to offer?
+                        </p>
+                        <div class="stroked-button">
+                            <a href="/support">
+                                Let Us Know!
+                            </a>
+                        </div>
+                        <br>
+
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 section-text">
+                    <div class="thumbnail" style="border: none;">
+                        <h3>
+                            Join Us
+                        </h3>
+                        <p>
+                            Passionate about cities? Got some skills in data/ geocoding/ design/ cities/ interaction? Feel like joining a cross-regional, cross-disciplinary community?
+                        </p>
+                        <div class="stroked-button">
+                            <a href="/join">
+                                Join Now!
+                            </a>
+                        </div>
+                        <br>
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+      
+
+      
+    </div>
+
+    <div class="side">
+	<ul>
+	  
+        <li><div class="sidebox">
+        <img src="/images/rss.png" alt="rss" style="width: 18px;">
+        
+        <input type="text" name="email" placeholder="email..." id="email" required="required" pattern="^[0-9a-zA-Z]*@{1}[0-9a-zA-Z]+\.(com|net|cn|com\.cn)$" class="email">
+        
+        <button type="submit" class="btn" onclick="subscribe()" >Subscribe</button>
+        </div>
+    </li>            
+      
+
+    
+    <li><a href="javascript:void(0);" onclick="chengeLang('ch')" class="sidetop"><img src="/images/ch.png" alt="ch" style="width: 18px;"></a></li>
+     
+    
+
+	  <li id="sideTop" style="border:none;"><a href="javascript:void(0);" class="sidetop" onclick="goTop()"><img src="/images/up.png" alt="up" style="width: 18px;"></a></li>
+  </ul>
+</div>
+    <footer>
+      
+    <div class="container">
+        <div class="row">
+            <div class="ol-md-12 col-sm-12 col-xs-12">
+            <div class="col-md-8 col-sm-8 head">
+                <h4>
+                    IVC - InVisibleCities
+                </h4>
+                <p>
+                     IVC - InVisibleCities is an open community advocating urban <br> research and innovation. Members from different professions, <br> cities and regions share the same enthusiasm on cities and <br> exchange creative ideas on urban living.
+                </p>
+                <div class="follow">
+                    <a href="https://www.facebook.com/IVC-In-Visible-Cities-%E5%9C%A8%E7%9C%8B%E5%BE%97%E8%A6%8B%E7%9A%84%E5%9F%8E%E5%B8%82-1189213677828798/" target="_blank" style="background-image: url(/images/face.png);"></a>
+                    <a href="javascript:void(0);" style="background-image: url(/images/wechat.png);">
+                        <span class="weixin-code" p-id="86">
+                            <img src="/images/wechat.jpg" p-id="87">
+                        </span>
+                    </a>
+                    <a href="mailto:info@ivc.city" style="background-image: url(/images/email.png);"></a>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-6 head">
+                <ul>
+                    
+                    
+                    <li>
+                        <a href="/" style="" >
+                            Home
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="/blog" style="" >
+                            Blog
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="/project" style="" >
+                            Projects
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="javascript:void(0);" style="color:#999999;" >
+                            Community
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="/about" style="" >
+                            About Us
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="col-md-2 col-sm-2 col-xs-6 head">
+                <ul>
+                    
+                    <li>
+                        <a href="mailto:info@ivc.city">
+                            Contact Us
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/support">
+                            Support Us
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/join">
+                            Join Us
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/admin/#/welcome">
+                            Admin Login
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 copyright">
+                <p>
+                    COPYRIGHT © 2017 IVC ALL RIGHTS RESERVED
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    </footer>
+    <script src="/js/alert.min.js"></script>
+    
+    <script src="/js/libs/wow-animate.js">
+    </script>
+    <script src="/js/main.min.js">
+    </script>
+    <script src="/js/method.min.js">
+    </script>
+    <script>
+        hljs.initHighlightingOnLoad();
+        new WOW ({
+          boxClass: 'wow',
+          animateClass: 'animated',
+          offset: 100,
+          mobile: true,
+          live: true
+        }).init();
+    </script>
+</body>
