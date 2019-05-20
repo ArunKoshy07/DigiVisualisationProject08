@@ -1,0 +1,183 @@
+{
+   "Road": [
+      {
+         "daynight": "day",
+         "decibal": 55,
+         "population": 2387200
+      },
+      {
+         "daynight": "day",
+         "decibal": 60,
+         "population": 1426100
+      },
+      {
+         "daynight": "day",
+         "decibal": 65,
+         "population": 1027200
+      },
+      {
+         "daynight": "day",
+         "decibal": 70,
+         "population": 597800
+      },
+      {
+         "daynight": "day",
+         "decibal": 75,
+         "population": 99200
+      },
+      {
+         "daynight": "night",
+         "decibal": 50,
+         "population": 1665400
+      },
+      {
+         "daynight": "night",
+         "decibal": 55,
+         "population": 1106500
+      },
+      {
+         "daynight": "night",
+         "decibal": 60,
+         "population": 649400
+      },
+      {
+         "daynight": "night",
+         "decibal": 65,
+         "population": 114500
+      },
+      {
+         "daynight": "night",
+         "decibal": 70,
+         "population": 900
+      }
+   ],
+   "Rail": [
+      {
+         "daynight": "day",
+         "decibal": 55,
+         "population": 525200
+      },
+      {
+         "daynight": "day",
+         "decibal": 60,
+         "population": 308500
+      },
+      {
+         "daynight": "day",
+         "decibal": 65,
+         "population": 158100
+      },
+      {
+         "daynight": "day",
+         "decibal": 70,
+         "population": 59800
+      },
+      {
+         "daynight": "day",
+         "decibal": 75,
+         "population": 15200
+      },
+      {
+         "daynight": "night",
+         "decibal": 50,
+         "population": 388700
+      },
+      {
+         "daynight": "night",
+         "decibal": 55,
+         "population": 214200
+      },
+      {
+         "daynight": "night",
+         "decibal": 60,
+         "population": 95100
+      },
+      {
+         "daynight": "night",
+         "decibal": 65,
+         "population": 29700
+      },
+      {
+         "daynight": "night",
+         "decibal": 70,
+         "population": 6400
+      }
+   ],
+   "Air": [
+      {
+         "daynight": "day",
+         "decibal": 57,
+         "population": 266700
+      },
+      {
+         "daynight": "day",
+         "decibal": 60,
+         "population": 120500
+      },
+      {
+         "daynight": "day",
+         "decibal": 63,
+         "population": 46000
+      },
+      {
+         "daynight": "day",
+         "decibal": 66,
+         "population": 13400
+      },
+      {
+         "daynight": "day",
+         "decibal": 69,
+         "population": 3600
+      },
+      {
+         "daynight": "day",
+         "decibal": 72,
+         "population": 200
+      },
+      {
+         "daynight": "night",
+         "decibal": 48,
+         "population": 364400
+      },
+      {
+         "daynight": "night",
+         "decibal": 51,
+         "population": 179700
+      },
+      {
+         "daynight": "night",
+         "decibal": 54,
+         "population": 76200
+      },
+      {
+         "daynight": "night",
+         "decibal": 57,
+         "population": 34800
+      },
+      {
+         "daynight": "night",
+         "decibal": 60,
+         "population": 10500
+      },
+      {
+         "daynight": "night",
+         "decibal": 63,
+         "population": 2200
+      },
+      {
+         "daynight": "night",
+         "decibal": 66,
+         "population": 200
+      },
+      {
+         "daynight": "night",
+         "decibal": 69,
+         "population": 100
+      },
+      {
+         "daynight": "night",
+         "decibal": 72,
+         "population": 0
+      }
+   ]
+}
