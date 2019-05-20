@@ -66,26 +66,31 @@
 }
 
 
-/* CONTROL ARROWS FOR SLIDES(IF ANY)
- * ---------------------------------*/
-
-.fp-controlArrow {
-    top: 51%;
-}
-
-.fp-controlArrow.fp-prev {
-    left: 0;
-    border: none;
-    width: 50px;
-    height: 50px;
-    background: url(media/arrow_left.png) no-repeat;
+.controller{
 
 }
-
-.fp-controlArrow.fp-next {
-    right: 0;
-    border: none;
-    width: 50px;
-    height: 50px;
-    background: url(media/arrow_right.png) no-repeat;
+.controller .pre{
+    position: fixed;
+    left: 2%;
+    top: 48%;
+    height: 2rem;
+    width: 2rem;
+    background-image: url(./static/pre.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    z-index: 11;
+    cursor: pointer;
+    display: none;
 }
+.controller .next{
+    position: fixed;
+    right: 2%;
+    top: 48%;
+    height: 2rem;
+    width: 2rem;
+    background-image: url(./static/next.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    z-index: 11;
+    cursor: pointer;
+    display: none;
