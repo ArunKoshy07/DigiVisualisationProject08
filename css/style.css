@@ -1,8 +1,8 @@
 .header{
-    font-size:17px;
+    font-size:17px, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 .header .fa{
-    font-size:25px;
+    font-size:25px, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 .showcase{
     background:url('../img/showcase.jpg') no-repeat;
@@ -13,9 +13,15 @@
     color: #fff;
 }
 .showcase h1{
-    font-size: 40px;
+    font-size: 40px, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-weight: 700;
-    text-transform: uppercase;
+    font-style: italic;
+/*    text-transform: uppercase;*/
+}
+.showcase h2{
+    font-size: 30px, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: 500;
+/*    text-transform: uppercase;*/
 }
 .showcase hr{
     width: 350px;
@@ -24,7 +30,7 @@
     border-color:#f44336;
 }
 .showcase p{
-    font-size:16px;
+    font-size:16px, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     padding-bottom:20px;
 }
 .home{    
@@ -65,6 +71,7 @@
     width=100%;
 }
 
+<<<<<<< HEAD
 /* CONTROL ARROWS FOR SLIDES(IF ANY)
  * ---------------------------------*/
 
@@ -88,3 +95,34 @@
     height: 50px;
     background: url(media/arrow_right.png) no-repeat;
 }
+=======
+
+.controller{
+
+}
+.controller .pre{
+    position: fixed;
+    left: 2%;
+    top: 48%;
+    height: 2rem;
+    width: 2rem;
+    background-image: url(./static/pre.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    z-index: 11;
+    cursor: pointer;
+    display: none;
+}
+.controller .next{
+    position: fixed;
+    right: 2%;
+    top: 48%;
+    height: 2rem;
+    width: 2rem;
+    background-image: url(./static/next.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    z-index: 11;
+    cursor: pointer;
+    display: none;
+>>>>>>> b293c28df58cf010c78b2fca01b3b1870c191ecf
