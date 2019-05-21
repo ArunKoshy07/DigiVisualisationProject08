@@ -21,6 +21,9 @@ a{
 .page{
     width: 100%;
     height: 100%;
+    position: fixed;  
+    top: 0px;  
+    left: 0px; 
 }
 
 
@@ -29,53 +32,62 @@ a{
 #p1{
 
 }
-#p1 .info{
-    width: 20%;
-    margin: 10% 2% 0 18%;
-    float: left;
-    color: #fff;
-    text-align: left;
-    padding: 0.8rem 2rem;
+#p1 .box{
+    width: 90%;
+    margin: 3% auto 0 auto;
+    padding: 3% 0;
     box-sizing: border-box;
     background-color: rgba(0, 0, 0, 0.6);
 }
-#p1 .info .title{
-
+#p1 .box:after {
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    display: block;
+    visibility: hidden;
+    content: ".";
 }
-#p1 .info .content{
-
-}
-#p1 .atlas{
-    list-style: none;
-    width: 30%;
-    float: right;
-    padding: 0;
-    max-height: 80vh;
-    margin: 5% 20% 0 0;
-    background-color: rgba(0, 0, 0, 0.6);
-}
-#p1 .atlas li{
-    width: 29%;
-    margin: 0 2%;
+#p1 .box .l{
+    width: 64%;
+    margin-left: 4%;
     float: left;
 }
-#p1 .atlas span{
+#p1 .box .l h1{
     color: #fff;
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-bottom: 15%;
+}
+#p1 .box .l p{
+    color: #fff;
+    margin: 7% 0;
     font-size: 1.4rem;
 }
-#p1 .atlas img{
-    width: 100%;
+#p1 .box .r{
+    width: 28%;
+    margin-right: 4%;
+    float: right;
+    color: #fff;
+}
+#p1 .box .r p{
+    color: #fff;
+}
+#p1 .box .r img{
+    max-width: 99%;
 }
 
 
 
 #p2{
-    display: none;
+    opacity:0;
+    z-index: -1;
 }
 #p2 .box{
     width: 90%;
-    margin: 3% auto 0 auto;
+    margin: 2% auto 0 auto;
     padding: 0;
+    height: 93%;
     box-sizing: border-box;
     background-color: rgba(0, 0, 0, 0.6);
 }
@@ -88,30 +100,61 @@ a{
     content: ".";
 }
 #p2 .item{
-    width: 50%;
+    width: 100%;
+    height: 50%;
     margin: 0;
     padding: 2% 5%;
     box-sizing: border-box;
     float: left;
-}
-#p2 .item:nth-child(odd){
-    width: 49%;
-    float: left;
-}
-#p2 .item:nth-child(even){
-    width: 49%;
-    float: right;
+    position: relative;
 }
 #p2 .item .title{
     color: #fff;
     margin: 1rem 0;
+    width: 13%;
+    display: block;
+    float: left;
+    padding-top: 10%;
+    line-height: 100%;
+
 }
-#p2 .item .content{
+#p2 .item .map{
+    width: 35%;
+    height: 100%;
+    float: left;
+    display: block;
+}
+#p2 .item .chart{
+    width: 49%;
+    height: 100%;
+    float: right;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+}
+#p2 .item .chart iframe{
+    border: 0;
+}
+#p2 .item img{
     width: 100%;
-    height: 30vh;
-    overflow: hidden;
 }
-#p2 .item .content:after {
+
+
+
+
+#p3{
+    opacity:0;
+    z-index: -1;
+}
+#p3 .box{
+    width: 90%;
+    margin: 2% auto 0 auto;
+    padding: 0;
+    height: 93%;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+#p3 .box:after {
     clear: both;
     height: 0;
     overflow: hidden;
@@ -119,53 +162,105 @@ a{
     visibility: hidden;
     content: ".";
 }
-#p2 .item .content .map{
-    width: 49%;
+#p3 .item{
+    width: 100%;
+    height: 50%;
+    margin: 0;
+    padding: 2% 5%;
+    box-sizing: border-box;
+    float: left;
+    position: relative;
+}
+#p3 .item .title{
+    color: #fff;
+    margin: 1rem 0;
+    width: 13%;
+    display: block;
+    float: left;
+    padding-top: 10%;
+    line-height: 100%;
+
+}
+#p3 .item .map{
+    width: 35%;
     height: 100%;
     float: left;
     display: block;
 }
-#p2 .item .content .chart{
+#p3 .item .chart{
     width: 49%;
     height: 100%;
     float: right;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
 }
-#p2 .item .content img{
+#p3 .item .chart iframe{
+    border: 0;
+}
+#p3 .item img{
     width: 100%;
 }
 
 
-
-#p3{
-    display: none;
+#p4{
+    opacity:0;
+    z-index: -1;
 }
-#p3 .info{
-    width: 20%;
-    margin: 10% 2% 0 18%;
-    float: left;
-    color: #fff;
-    text-align: left;
-    padding: 0.8rem 2rem;
+#p4 .box{
+    width: 90%;
+    margin: 3% auto 0 auto;
+    padding: 3% 0;
     box-sizing: border-box;
     background-color: rgba(0, 0, 0, 0.6);
 }
-#p3 .info .title{
-
+#p4 .box:after {
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    display: block;
+    visibility: hidden;
+    content: ".";
 }
-#p3 .info .content{
-
+#p4 .box .l{
+    width: 55%;
+    margin-left: 4%;
+    float: left;
 }
-#p3 .img{
-    width: 30%;
-    float: right;
-    max-height: 80vh;
-    padding: 1rem;
-    margin: 4% 20% 0 0;
-    background-color: rgba(0, 0, 0, 0.6);
+#p4 .box .l p{
+    width: 100%;
+    color: #fff;
+    font-size: 1.4rem;
 }
-#p3 .img img{
+#p4 .box .l p span{
+    display: block;
+    width: 100%;
+    text-align: right;
+}
+#p4 .box .l img{
     width: 100%;
 }
+#p4 .box .r{
+    width: 34%;
+    margin-right: 4%;
+    float: right;
+}
+#p4 .box .r #c5{
+    width: 100%;
+    height: 12rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    margin-top: 6.7rem;
+    min-height: 400px;
+}
+#p4 .box .r p{
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+
+
+
 
 
 
@@ -201,76 +296,37 @@ a{
 
 
 @media screen and (max-width:1680px){
-    #p1 .info,#p3 .info{
-        width: 25%;
-        margin: 12% 2% 0 15%;
-    }
-    #p1 .atlas{
-        width: 35%;
-        margin: 8% 14% 0 0;
-    }
-    #p2 .box {
-        margin: 4% auto 0 auto;
-    }
-    #p3 .img{
-        margin: 5% 15% 0 0;
+    #p4 .box .r #c5{
+        min-height: 350px;
     }
 }
 
 @media screen and (max-width:1440px){
-    #p1 .info,#p3 .info{
-        width: 28%;
-        margin: 15% 2% 0 10%;
+    #p1 .box,#p4 .box{
+        margin: 8% auto 0 auto;
     }
-    #p1 .atlas,#p3 .img{
-        width: 38%;
-        margin: 8% 14% 0 0;
+    #p3 .item .title{
+        font-size: 1rem;
     }
-    #p2 .box {
-        margin: 5% auto 0 auto;
-    }
-    #p2 .item{
-        padding: 2% 2%;
+    #p4 .box .r #c5{
+        min-height: 295px;
     }
 }
 
 @media screen and (max-width:1280px){
-    #p1 .info,#p3 .info{
-        width: 30%;
-        margin: 18% 2% 0 10%;
+    #p1 .box,#p4 .box{
+        margin: 13% auto 0 auto;
     }
-    #p1 .atlas,#p3 .img{
-        width: 40%;
-        margin: 10% 14% 0 0;
+    #p4 .box .r #c5{
+        min-height: 240px;
     }
-    #p2 .box {
-        margin: 15% auto 0 auto;
-    }
-    #p2 .item{
-        padding: 2% 2%;
-    }
-    #p2 .item .content{
-        height: 20vh;
+    #p4 .box .r p {
+        color: #fff;
+        font-size: 1.2rem;
     }
 }
 
 
 @media screen and (max-width:1024px){
-    #p1 .info,#p3 .info{
-        width: 33%;
-        margin: 24% 2% 0 10%;
-    }
-    #p1 .atlas,#p3 .img{
-        width: 40%;
-        margin: 14% 9% 0 0;
-    }
-    #p2 .box {
-        margin: 15% auto 0 auto;
-    }
-    #p2 .item{
-        padding: 2% 2%;
-    }
-    #p2 .item .content{
-        height: 20vh;
-    }
+
 }

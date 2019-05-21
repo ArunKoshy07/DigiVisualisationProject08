@@ -2,129 +2,102 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>air pollution</title>
+<title>Energy consumption research</title>
 <link rel="stylesheet" href="css.css" type="text/css"/>
 </head>
 <body>
 
 <div class="page" id="p1">
-	<div class="info">
-		<h1 class="title">Air pollution analysis</h1>
-		<div class="content">
-			<p>Use nighttime lighting data to observe UK energy consumption</p>
-			<p></p>
-			<p>Source: Satellite remote sensing lighting data</p>
-			<p>Time interval: 2010 to 2019</p>
+	<div class="box">
+		<div class="l">
+			<h1>Energy consumption research</h1>
+			<p>Nighttime lighting data： 
+				<br/>Observing UK energy consumption
+			</p>
+			<p>Source: 
+				<br/>Satellite remote sensing lighting  data			 
+			</p>
+			<p>Time interval: 
+				<br/>2013 to 2019
+			</p>
+		</div>
+		<div class="r">
+			<p>Light pollution data from NASA</p>
+			<img src="./static/img/a.gif"/>
 		</div>
 	</div>
-	<ul class="atlas">
-		<li>
-			<span>2010</span>
-			<img src="static/img/2011.png"/>
-		</li>
-		<li>
-			<span>2011</span>
-			<img src="static/img/2011.png"/>
-		</li>
-		<li>
-			<span>2012</span>
-			<img src="static/img/2011.png"/>
-		</li>
-		<li>
-			<span>2013</span>
-			<img src="static/img/2011.png"/>
-		</li>
-		<li>
-			<span>2014</span>
-			<img src="static/img/2011.png"/>
-		</li>
-		<li>
-			<span>2015</span>
-			<img src="static/img/2011.png"/>
-		</li>
-		<li>
-			<span>2016</span>
-			<img src="static/img/2011.png"/>
-		</li>
-		<li>
-			<span>2017</span>
-			<img src="static/img/2011.png"/>
-		</li>
-		<li>
-			<span>2018</span>
-			<img src="static/img/2011.png"/>
-		</li>
-	</ul>
 </div>
+
 
 <div class="page" id="p2">
 	
 	<div class="box">
 		<div class="item">
 				<h2 class="title">London</h2>
-				<div class="content">
-					<div class="map">
-						<img src="./static/img/e1.png">
-					</div>
-					<div class="chart">
-						<img src="./static/img/chart.png">
-					</div>
+				<div class="map">
+					<img src="./static/img/b1.gif">
 				</div>
-			</div>
-				
-			<div class="item">
-				<h2 class="title">Birmingham</h2>
-				<div class="content">
-					<div class="map">
-						<img src="./static/img/e2.png">
-					</div>
-					<div class="chart">
-						<img src="./static/img/chart.png">
-					</div>
-				</div>
+				<div class="chart" id="c1"></div>
 			</div>
 				
 			<div class="item">
 				<h2 class="title">Bristol</h2>
-				<div class="content">
-					<div class="map">
-						<img src="./static/img/e3.png">
-					</div>
-					<div class="chart">
-						<img src="./static/img/chart.png">
-					</div>
+				<div class="map">
+					<img src="./static/img/b2.gif">
 				</div>
-			</div>
-				
-			<div class="item">
-				<h2 class="title">Manchester</h2>
-				<div class="content">
-					<div class="map">
-						<img src="./static/img/e4.png">
-					</div>
-					<div class="chart">
-						<img src="./static/img/chart.png">
-					</div>
-				</div>
+				<div class="chart" id="c2"></div>
 			</div>
 	</div>
 
 </div>
 
+
+
 <div class="page" id="p3">
-		<div class="info">
-			<h1 class="title">air pollution</h1>
-			<div class="content">
-				<p>利用夜间灯光数据观察英国的能源消耗情况</p>
-				<p></p>
-				<p>数据来源：卫星遥感灯光数据</p>
-				<p>时间区间：2010 至 2019年</p>
+	
+	<div class="box">
+		<div class="item">
+				<h2 class="title">Liverpool</h2>
+				<div class="map">
+					<img src="./static/img/c1.gif">
+				</div>
+				<div class="chart" id="c3"></div>
 			</div>
-		</div>
-		<div class="img">
-			<img src="./static/img/p3i.jpg" />
-		</div>
+				
+			<div class="item">
+				<h2 class="title">Birmingham</h2>
+				<div class="map">
+					<img src="./static/img/c2.gif">
+				</div>
+				<div class="chart" id="c4"></div>
+			</div>
+	</div>
+
 </div>
+
+
+
+
+<div class="page" id="p4">
+	<div class="box">
+		<div class="l">
+				<p>
+					Energy consumption in London
+					<span>—— year 2013 – 2019</span>
+				</p>
+				<img src="./static/img/d.png"/>
+			</div>
+			<div class="r">
+				<div id="c5"></div>
+				<p>Energy consumption in London</p>
+				<p>Wembley</p>
+				<p>Heathrow</p>
+			</div>
+	</div>
+</div>
+
+
+
 
 
 <div class="controller">
@@ -135,6 +108,15 @@
 <video id="video_background" src="static/appletv.mp4" autoplay="autoplay" loop="loop"></video>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
+
 <script src="js.js"></script>
 </body>
 </html>
