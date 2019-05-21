@@ -53,10 +53,10 @@ $('#c1').ready(function(){
     option = null;
     app.title = 'scatter plot';
     
-    var hours = ['intensity，percentage', 'D1', 'D2', 'D3', 'D4', 'D2', 'D3',
-            'D3', 'D3', 'D4','D4','D4',
-            'D5', 'D5', 'D5', 'D6', 'D6', 'D6',
-            'D7', 'D7', 'D7', 'D8', 'D8', 'D8'];
+    var hours = ['intensity,percentage', 'intensity,percentage', 'intensity,percentage', 'intensity,percentage', 'intensity,percentage', 'intensity,percentage', 'intensity,percentage',
+            'intensity,percentage', 'intensity,percentage', 'intensity,percentage','intensity,percentage','Dintensity,percentage',
+            'intensity,percentage', 'intensity,percentage', 'intensity,percentage', 'intensity,percentage','intensity,percentage','intensity,percentage',
+            'intensity,percentage', 'intensity,percentage', 'intensity,percentage', 'intensity,percentage','intensity,percentage','intensity,percentage'];
     var days = ['YEAR2013', 'YEAR2014', 'YEAR2015',
             'YEAR2016', 'YEAR2017', 'YEAR2018', 'YEAR2019'];
     
