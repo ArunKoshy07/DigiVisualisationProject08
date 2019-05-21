@@ -1,7 +1,7 @@
-var page; //当前页面
-var page_total;  //页面总数
+var page; //current page
+var page_total;  //Total number of pages
 
-//初始化
+//initialize
 $('body').ready(function(){
     page = 1;
     page_total = $(".page").length;
@@ -11,7 +11,7 @@ $('body').ready(function(){
 });
 
 
-//翻页控制函数 p
+//Page turning control function p
 page_turn = function page_turn(p){
     $(".page").hide();
     $(".page").css('opacity',0);
@@ -32,13 +32,13 @@ page_turn = function page_turn(p){
     }
 }
 
-//上页
+//pre page
 $(".pre").click(function(){
     page_turn(page-1);
 });
 
 
-//下页
+//next page
 $(".next").click(function(){
     page_turn(page+1);
 });
@@ -53,10 +53,10 @@ $('#c1').ready(function(){
     option = null;
     app.title = 'scatter plot';
     
-    var hours = ['1', 'intensity,percentage', 'intensity,percentage', '2', 'intensity,percentage', 'intensity,percentage', '3',
-            'intensity,percentage', 'intensity,percentage', '4','intensity,percentage','Dintensity,percentage',
-            '5', 'intensity,percentage', 'intensity,percentage', '6','intensity,percentage','intensity,percentage',
-            '7', 'intensity,percentage', 'intensity,percentage', '8','intensity,percentage','intensity,percentage'];
+    var hours = ['1', 'intensity,percentage', 'intensity,percentage', '4', 'intensity,percentage', 'intensity,percentage', '7',
+            'intensity,percentage', 'intensity,percentage', '10','intensity,percentage','intensity,percentage',
+            '13', 'intensity,percentage', 'intensity,percentage', '16','intensity,percentage','intensity,percentage',
+            '19', 'intensity,percentage', 'intensity,percentage', '22','intensity,percentage','intensity,percentage'];
     var days = ['YEAR2013', 'YEAR2014', 'YEAR2015',
             'YEAR2016', 'YEAR2017', 'YEAR2018', 'YEAR2019'];
     
@@ -140,14 +140,13 @@ $('#c2').ready(function(){
     option = null;
     app.title = 'scatter plot';
     
-    var hours = ['Degree1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7',
-            'D8', 'D9', 'D10','D11','D12',
-            'D13', 'D14', 'D15', 'D16', 'D17', 'D18',
-            'D19', 'D20', 'D21', 'D22', 'D23', 'D24'];
-    var days = ['YEAR2013', 'YEAR2014', 'YEAR2015',
-            'YEAR2016', 'YEAR2017', 'YEAR2018', 'YEAR2019'];
-    
-    var data = [
+var hours = ['1', 'intensity,percentage', 'intensity,percentage', '4', 'intensity,percentage', 'intensity,percentage', '7',
+            'intensity,percentage', 'intensity,percentage', '10','intensity,percentage','intensity,percentage',
+            '13', 'intensity,percentage', 'intensity,percentage', '16','intensity,percentage','intensity,percentage',
+            '19', 'intensity,percentage', 'intensity,percentage', '22','intensity,percentage','intensity,percentage'];
+var days = ['Saturday', 'Friday', 'Thursday',
+        'Wednesday', 'Tuesday', 'Monday', 'Sunday'];
+ var data = [
                 [0,0,1],[0,1,2],[1,2,3],[0,13,1],[0,14,3],[0,15,2],[0,16,6],[0,17,8],[0,18,6],[0,19,7],[0,10,8],[0,11,2],[0,12,4],[0,3,7],[0,4,11],[0,5,3],[0,6,4],[0,7,6],[0,8,4],[0,9,10],[0,20,3],[0,21,6],[0,22,2],[0,23,1],
     
                 [1,0,2],[1,1,0],[1,2,3],[1,3,6],[1,4,3],[1,15,4],[1,16,8],[1,17,11],[1,18,6],[1,19,7],[1,10,7],[1,11,2],[1,12,1],[1,13,6],[1,14,2],[1,5,11],[1,6,6],[1,7,7],[1,8,8],[1,9,12],[1,20,5],[1,21,5],[1,22,7],[1,23,2],
@@ -161,6 +160,7 @@ $('#c2').ready(function(){
                 [5,1,1],[5,2,2],[5,3,8],[5,4,2],[5,15,6],[5,16,2],[5,17,1],[5,18,2],[5,19,8],[5,10,4],[5,11,1],[5,12,5],[5,13,10],[5,14,5],[5,5,7],[5,6,11],[5,7,6],[5,8,0],[5,9,5],[5,20,3],[5,21,4],[5,22,2],[5,23,0],
                 
                 [6,0,1],[6,1,4],[6,2,1],[6,3,2],[6,4,7],[6,15,0],[6,16,1],[6,17,5],[6,18,9],[6,19,5],[6,10,4],[6,11,7],[6,12,4],[6,13,3],[6,14,13],[6,5,4],[6,6,8],[6,7,4],[6,8,10],[6,9,8],[6,20,1],[6,21,3],[6,22,2],[6,23,2]];
+
     option = {
         tooltip: {
             position: 'top'
@@ -226,14 +226,14 @@ $('#c3').ready(function(){
     option = null;
     app.title = 'scatter plot';
     
-    var hours = ['Degree1', 'D1', 'D1', 'D2', 'D2', 'D2', 'D3',
-            'D3', 'D3', 'D4','D4','D4',
-            'D5', 'D5', 'D5', 'D6', 'D6', 'D6',
-            'D7', 'D7', 'D7', 'D8', 'D8', 'D8'];
-    var days = ['YEAR2013', 'YEAR2014', 'YEAR2015',
-            'YEAR2016', 'YEAR2017', 'YEAR2018', 'YEAR2019'];
+ var hours = ['1', 'intensity,percentage', 'intensity,percentage', '4', 'intensity,percentage', 'intensity,percentage', '7',
+            'intensity,percentage', 'intensity,percentage', '10','intensity,percentage','intensity,percentage',
+            '13', 'intensity,percentage', 'intensity,percentage', '16','intensity,percentage','intensity,percentage',
+            '19', 'intensity,percentage', 'intensity,percentage', '22','intensity,percentage','intensity,percentage'];
+var days = ['Saturday', 'Friday', 'Thursday',
+        'Wednesday', 'Tuesday', 'Monday', 'Sunday'];
 
-            var data = [
+  var data = [
                 [0,0,1],[0,1,0],[1,2,3],[0,13,7],[0,14,2],[0,15,6],[0,16,6],[0,17,8],[0,18,6],[0,19,7],[0,10,8],[0,11,2],[0,12,4],[0,3,10],[0,4,11],[0,5,3],[0,6,4],[0,7,6],[0,8,5],[0,9,4],[0,20,3],[0,21,5],[0,22,3],[0,23,3],
     
                 [1,0,2],[1,1,0],[1,2,3],[1,3,6],[1,4,3],[1,15,4],[1,16,8],[1,17,6],[1,18,6],[1,19,7],[1,10,7],[1,11,2],[1,12,1],[1,13,13],[1,14,2],[1,5,11],[1,6,6],[1,7,8],[1,8,8],[1,9,12],[1,20,5],[1,21,5],[1,22,1],[1,23,2],
@@ -246,9 +246,8 @@ $('#c3').ready(function(){
                 
                 [5,1,1],[5,2,0],[5,3,8],[5,4,2],[5,15,6],[5,16,2],[5,17,9],[5,18,2],[5,19,8],[5,10,4],[5,11,1],[5,12,5],[5,13,10],[5,14,5],[5,5,7],[5,6,8],[5,7,6],[5,8,0],[5,9,5],[5,20,3],[5,21,4],[5,22,2],[5,23,0],
                 
-                [6,0,1],[6,1,4],[6,2,1],[6,3,2],[6,4,7],[6,15,0],[6,16,1],[6,17,5],[6,18,9],[6,19,5],[6,10,4],[6,11,7],[6,12,11],[6,13,3],[6,14,7],[6,5,4],[6,6,8],[6,7,4],[6,8,13],[6,9,8],[6,20,1],[6,21,1],[6,22,2],[6,23,2]];
-    
-    
+                [6,0,1],[6,1,4],[6,2,1],[6,3,2],[6,4,7],[6,15,0],[6,16,1],[6,17,5],[6,18,9],[6,19,8],[6,10,4],[6,11,7],[6,12,11],[6,13,3],[6,14,7],[6,5,4],[6,6,8],[6,7,4],[6,8,13],[6,9,8],[6,20,1],[6,21,1],[6,22,2],[6,23,2]];
+  
     option = {
         tooltip: {
             position: 'top'
@@ -311,15 +310,14 @@ $('#c4').ready(function(){
     option = null;
     app.title = 'scatter plot';
 
-    var hours = ['Degree1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7',
-            'D8', 'D9', 'D10','D11','D12',
-            'D13', 'D14', 'D15', 'D16', 'D17', 'D18',
-            'D19', 'D20', 'D21', 'D22', 'D23', 'D24'];
-    var days = ['YEAR2013', 'YEAR2014', 'YEAR2015',
-            'YEAR2016', 'YEAR2017', 'YEAR2018', 'YEAR2019'];
-
-    var data = [
-                [0,0,1],[0,1,3],[1,2,3],[0,13,1],[0,14,3],[0,15,5],[0,16,6],[0,17,8],[0,18,6],[0,19,7],[0,10,8],[0,11,9],[0,12,8],[0,3,7],[0,4,8],[0,5,2],[0,6,4],[0,7,3],[0,8,4],[0,9,10],[0,20,3],[0,21,3],[0,22,2],[0,23,5],
+ var hours = ['1', 'intensity,percentage', 'intensity,percentage', '4', 'intensity,percentage', 'intensity,percentage', '7',
+            'intensity,percentage', 'intensity,percentage', '10','intensity,percentage','intensity,percentage',
+            '13', 'intensity,percentage', 'intensity,percentage', '16','intensity,percentage','intensity,percentage',
+            '19', 'intensity,percentage', 'intensity,percentage', '22','intensity,percentage','intensity,percentage'];
+var days = ['Saturday', 'Friday', 'Thursday',
+        'Wednesday', 'Tuesday', 'Monday', 'Sunday'];
+   var data = [
+                [0,0,1],[0,1,3],[1,2,3],[0,13,1],[0,14,3],[0,15,5],[0,16,6],[0,17,8],[0,18,6],[0,19,7],[0,10,8],[0,11,9],[0,12,8],[0,3,7],[0,4,8],[0,5,2],[0,6,4],[0,7,3],[0,8,4],[0,9,10],[0,20,3],[0,21,3],[0,22,2],[0,23,3],
 
                 [1,0,2],[1,1,1],[1,2,1],[1,3,4],[1,4,3],[1,15,4],[1,16,8],[1,17,11],[1,18,6],[1,19,7],[1,10,7],[1,11,2],[1,12,5],[1,13,8],[1,14,5],[1,5,7],[1,6,6],[1,7,10],[1,8,8],[1,9,12],[1,20,5],[1,21,5],[1,22,3],[1,23,2],
         
@@ -331,7 +329,7 @@ $('#c4').ready(function(){
                 
                 [5,1,1],[5,2,2],[5,3,6],[5,4,2],[5,15,6],[5,16,2],[5,17,1],[5,18,2],[5,19,8],[5,10,11],[5,11,1],[5,12,5],[5,13,10],[5,14,9],[5,5,7],[5,6,11],[5,7,4],[5,8,9],[5,9,5],[5,20,3],[5,21,4],[5,22,2],[5,23,0],
                 
-                [6,0,1],[6,1,4],[6,2,1],[6,3,2],[6,4,7],[6,15,0],[6,16,10],[6,17,2],[6,18,9],[6,19,7],[6,10,4],[6,11,7],[6,12,4],[6,13,3],[6,14,13],[6,5,2],[6,6,9],[6,7,3],[6,8,6],[6,9,3],[6,20,1],[6,21,2],[6,22,2],[6,23,1]];
+                [6,0,1],[6,1,4],[6,2,1],[6,3,2],[6,4,7],[6,15,0],[6,16,10],[6,17,2],[6,18,9],[6,19,7],[6,10,4],[6,11,7],[6,12,4],[6,13,3],[6,14,13],[6,5,2],[6,6,9],[6,7,3],[6,8,6],[6,9,3],[6,20,1],[6,21,2],[6,22,3],[6,23,1]];
 
     option = {
         tooltip: {
