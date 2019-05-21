@@ -144,8 +144,8 @@ var hours = ['1', 'intensity,percentage', 'intensity,percentage', '4', 'intensit
             'intensity,percentage', 'intensity,percentage', '10','intensity,percentage','intensity,percentage',
             '13', 'intensity,percentage', 'intensity,percentage', '16','intensity,percentage','intensity,percentage',
             '19', 'intensity,percentage', 'intensity,percentage', '22','intensity,percentage','intensity,percentage'];
-var days = ['Saturday', 'Friday', 'Thursday',
-        'Wednesday', 'Tuesday', 'Monday', 'Sunday'];
+ var days = ['YEAR2013', 'YEAR2014', 'YEAR2015',
+            'YEAR2016', 'YEAR2017', 'YEAR2018', 'YEAR2019'];
  var data = [
                 [0,0,1],[0,1,2],[1,2,3],[0,13,1],[0,14,3],[0,15,2],[0,16,6],[0,17,8],[0,18,6],[0,19,7],[0,10,8],[0,11,2],[0,12,4],[0,3,7],[0,4,11],[0,5,3],[0,6,4],[0,7,6],[0,8,4],[0,9,10],[0,20,3],[0,21,6],[0,22,2],[0,23,1],
     
@@ -230,8 +230,8 @@ $('#c3').ready(function(){
             'intensity,percentage', 'intensity,percentage', '10','intensity,percentage','intensity,percentage',
             '13', 'intensity,percentage', 'intensity,percentage', '16','intensity,percentage','intensity,percentage',
             '19', 'intensity,percentage', 'intensity,percentage', '22','intensity,percentage','intensity,percentage'];
-var days = ['Saturday', 'Friday', 'Thursday',
-        'Wednesday', 'Tuesday', 'Monday', 'Sunday'];
+ var days = ['YEAR2013', 'YEAR2014', 'YEAR2015',
+            'YEAR2016', 'YEAR2017', 'YEAR2018', 'YEAR2019'];
 
   var data = [
                 [0,0,1],[0,1,0],[1,2,3],[0,13,7],[0,14,2],[0,15,6],[0,16,6],[0,17,8],[0,18,6],[0,19,7],[0,10,8],[0,11,2],[0,12,4],[0,3,10],[0,4,11],[0,5,3],[0,6,4],[0,7,6],[0,8,5],[0,9,4],[0,20,3],[0,21,5],[0,22,3],[0,23,3],
@@ -314,8 +314,8 @@ $('#c4').ready(function(){
             'intensity,percentage', 'intensity,percentage', '10','intensity,percentage','intensity,percentage',
             '13', 'intensity,percentage', 'intensity,percentage', '16','intensity,percentage','intensity,percentage',
             '19', 'intensity,percentage', 'intensity,percentage', '22','intensity,percentage','intensity,percentage'];
-var days = ['Saturday', 'Friday', 'Thursday',
-        'Wednesday', 'Tuesday', 'Monday', 'Sunday'];
+ var days = ['YEAR2013', 'YEAR2014', 'YEAR2015',
+            'YEAR2016', 'YEAR2017', 'YEAR2018', 'YEAR2019'];
    var data = [
                 [0,0,1],[0,1,3],[1,2,3],[0,13,1],[0,14,3],[0,15,5],[0,16,6],[0,17,8],[0,18,6],[0,19,7],[0,10,8],[0,11,9],[0,12,8],[0,3,7],[0,4,8],[0,5,2],[0,6,4],[0,7,3],[0,8,4],[0,9,10],[0,20,3],[0,21,3],[0,22,2],[0,23,3],
 
