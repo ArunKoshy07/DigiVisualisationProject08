@@ -53,10 +53,10 @@ $('#c1').ready(function(){
     option = null;
     app.title = 'scatter plot';
     
-    var hours = ['intensity,percentage', 'intensity,percentage', 'intensity,percentage', 'intensity,percentage', 'intensity,percentage', 'intensity,percentage', 'intensity,percentage',
-            'intensity,percentage', 'intensity,percentage', 'intensity,percentage','intensity,percentage','Dintensity,percentage',
-            'intensity,percentage', 'intensity,percentage', 'intensity,percentage', 'intensity,percentage','intensity,percentage','intensity,percentage',
-            'intensity,percentage', 'intensity,percentage', 'intensity,percentage', 'intensity,percentage','intensity,percentage','intensity,percentage'];
+    var hours = ['1', 'intensity,percentage', 'intensity,percentage', '2', 'intensity,percentage', 'intensity,percentage', '3',
+            'intensity,percentage', 'intensity,percentage', '4','intensity,percentage','Dintensity,percentage',
+            '5', 'intensity,percentage', 'intensity,percentage', '6','intensity,percentage','intensity,percentage',
+            '7', 'intensity,percentage', 'intensity,percentage', '8','intensity,percentage','intensity,percentage'];
     var days = ['YEAR2013', 'YEAR2014', 'YEAR2015',
             'YEAR2016', 'YEAR2017', 'YEAR2018', 'YEAR2019'];
     
@@ -73,7 +73,7 @@ $('#c1').ready(function(){
                 
                 [5,1,1],[5,2,0],[5,3,8],[5,4,2],[5,5,6],[5,6,2],[5,7,1],[5,8,2],[5,9,8],[5,10,4],[5,11,1],[5,12,5],[5,13,10],[5,14,5],[5,15,7],[5,16,11],[5,17,6],[5,18,0],[5,19,5],[5,20,3],[5,21,3],[5,22,2],[5,23,0],
                 
-                [6,0,1],[6,1,4],[6,2,1],[6,3,2],[6,4,7],[6,5,0],[6,6,1],[6,7,5],[6,8,9],[6,9,5],[6,10,4],[6,11,7],[6,12,8],[6,13,3],[6,14,13],[6,15,4],[6,16,8],[6,17,4],[6,18,11],[6,19,8],[6,20,1],[6,21,2],[6,22,1],[6,23,2]];
+                [6,0,1],[6,1,4],[6,2,1],[6,3,2],[6,4,7],[6,5,0],[6,6,1],[6,7,5],[6,8,9],[6,9,5],[6,10,4],[6,11,7],[6,12,8],[6,13,3],[6,14,13],[6,15,4],[6,16,8],[6,17,4],[6,18,11],[6,19,8],[6,20,3],[6,21,2],[6,22,3],[6,23,1]];
     
     option = {
         tooltip: {
