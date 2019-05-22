@@ -445,7 +445,7 @@ $('#c5').ready(function(){
             {
                 name:'Heathrow',
                 type:'bar',
-                data:[10, 12, 14, 16, 18, 22, 23],
+                data:[13, 18, 15, 16, 18, 23, 23],
                 markPoint : {
                     data : [
                         {name : 'ymax', value : 20.2, xAxis: 7, yAxis: 183},
