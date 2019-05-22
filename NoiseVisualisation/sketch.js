@@ -1,5 +1,8 @@
+// var option;
+
+
 function preload() {
-  console.log(noiseJsonDat);
+  // console.log(noiseJsonDat);
 
 }
 
@@ -9,65 +12,72 @@ function setup() {
   var myChart = echarts.init(dom);
   var app = {};
   option = null;
-  app.title = 'Population Impacted';
+  // app.title = 'Population Impacted';
 
-  var colors = ['#5793f3', '#d14a61', '#675bba'];
+  var colors = ['#dc0404', '#dc9104', '#105610', '#103f56', '#6c05a8', '#a8053c'];
 
   option = {
-      color: colors,
-      title: {
-        text: 'Population Impacted by Noise',
-        textAlign: 'left'
-      },
+    color: colors,
+    title: {
+      text: '      Population Impacted',
+      // textStyle: {
+      //   fontStyle: 'italic',
+      // },
+      textAlign: 'left'
+    },
+    // grid{left:'10%'},
 
-      tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-          type: 'cross'
-        },
-        textStyle:{
-          fontSize:10
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'cross'
+      },
+      textStyle: {
+        fontSize: 10
+      }
+    },
+    legend: {
+      data: ['Population ', 'Noise Source'],
+      show: true,
+      align: 'center'
+
+    },
+    xAxis: [{
+      type: 'category',
+      name: 'Noise Range in Decibel(dB)',
+      nameLocation: 'center',
+      nameTextStyle: {
+        padding: 5,
+      },
+      axisTick: {
+        alignWithLabel: true
+      },
+      data: ['50-55', '55-60', '60-65', '65-70', '70-75', '>75']
+    }],
+    yAxis: [{
+      type: 'value',
+      name: 'Population',
+      min: 0,
+      max: 2500000,
+      splitNumber: 8,
+      padding: 0,
+      position: 'left',
+      axisLine: {
+        lineStyle: {
+          color: '#0f100f'
         }
       },
-      legend: {
-        data: ['Population ', 'Noise Source'],
-        show: true,
-        align: 'left'
-
+      margin: 30,
+      axisLabel: {
+        formatter: '{value}',
+        padding: [0, -5]
       },
-      xAxis: [{
-        type: 'category',
-        name: 'Noise Range in Decibel(dB)',
-        nameLocation: 'center',
-        nameTextStyle: {
-          padding: 5,
-        },
-        axisTick: {
-          alignWithLabel: true
-        },
-        data: ['>50', '>55', '>60', '>65', '>70', '>75']
-      }],
-      yAxis: [{
-          type: 'value',
-          name: 'Population',
-          min: 0,
-          max: 2500000,
-          padding:25,
-          position: 'left',
-          axisLine: {
-            lineStyle: {
-              color: colors[2]
-            }
-          },
-          axisLabel: {
-            formatter: '{value}'
-          },
-        data: {
-          textStyle: {
-            fontSize:5
-          }
+      data: {
+        textStyle: {
+          fontSize: 5
         }
-      }],
+      }
+    }],
     series: [{
         name: 'Day Road Noise',
         type: 'line',
@@ -100,10 +110,10 @@ function setup() {
       }
 
     ]
-};;
-if (option && typeof option === "object") {
-  myChart.setOption(option, true);
-}
+  };
+  if (option && typeof option === "object") {
+    myChart.setOption(option, true);
+  }
 
 
 }
@@ -293,3 +303,33 @@ var noiseJsonDat = {
     }
   ]
 };
+
+function getdB(layer, daynight) {
+
+  if (daynight == 'd') {
+    switch (layer.substring(0, 2)) {
+      case "x1": return '';break;
+      case "x2": return '';break;  
+      case "x3": return '';break;
+      case "x4": return '';break;
+      case "x5": return '';break;
+      case "x6": return '';break;          
+      default: return'na';
+    }
+    } else {
+    switch (layer.substring(0, 2)) {
+      case "x1": return '< 48';break;
+      case "x2": return '48-51';break;  
+      case "x3": return '51-54';break;
+      case "x4": return '54-57';break;
+      case "x5": return '57-60';break;
+      case "x6": return '60-63';break;
+      case "x7": return '63-66';break;
+      case "x8": return '66-69';break;
+      case "x9": return '>72';   
+      default: return'na';
+
+    }
+  }
+
+}

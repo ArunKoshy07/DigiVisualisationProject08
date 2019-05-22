@@ -11,7 +11,7 @@
   <script type="text/javascript" src="echarts.css"></script>
   <script src="mapbox-gl-compare.js"></script>
   <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css" type="text/css">
-    <link href="https://api.mapbox.com/mapbox-assembly/v0.23.2/assembly.min.css" rel="stylesheet">
+  <link href="https://api.mapbox.com/mapbox-assembly/v0.23.2/assembly.min.css" rel="stylesheet">
   <script async="" defer="" src="assembly.js"></script>
 
   <script src="sketch.js"></script>
@@ -24,80 +24,122 @@
   <div id="after" class="map"></div>
 
   <div class="map-overlay" id="DataLayers">
-
-    <h2> Noise Data Layers</h2>
+    <!--     <h3> Noise Data Layers</h3> -->
     <a>
-      <input type="checkbox" id="myCheck" value="railnight" checked="">Night Rail Noise 2019<br>
-      <input type="checkbox" id="myCheck" value="roadnight" checked="">Night Road Noise 2019<br>
-      <input type="checkbox" id="myCheck" value="lhrnight" checked="">Night Aircraft Noise 2019<br>
-      <input type="checkbox" id="myCheck" value="railday" checked="">Day Rail Noise 2019<br>
-      <input type="checkbox" id="myCheck" value="roadday" checked="">Day Road Noise 2019<br>
-      <input type="checkbox" id="myCheck" value="lhrday" checked="">Day Aircraft Noise 2019<br>
+      <table id="layertable" align="center">
+        <tbody><tr>
+          <td colspan="2" align="center"><b>Noise Data Layers</b></td>
+        </tr>
+        <tr>
+          <th>Left Map</th>
+          <th>Right Map</th>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="myCheck" value="roadnight" checked="">Night Road Noise 2019</td>
+          <td><input type="checkbox" id="myCheck" value="roadday" checked="">Day Road Noise 2019</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="myCheck" value="railnight" checked="">Night Rail Noise 2019</td>
+          <td><input type="checkbox" id="myCheck" value="railday" checked="">Day Rail Noise 2019</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="myCheck" value="lhrnight" checked="">Night Aircraft Noise 2019</td>
+          <td><input type="checkbox" id="myCheck" value="lhrday" checked="">Day Aircraft Noise 2019</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="myCheck" value="roadday2012">Day Road Noise 2012</td>
+          <td><input type="checkbox" id="myCheck" value="roadnight2012">Night Road Noise 2012</td>
+        </tr>
+       <tr>
+          <td><input type="checkbox" id="myCheck" value="railday2012">Day Rail Noise 2012</td>
+          <td><input type="checkbox" id="myCheck" value="railnight2012">Night Rail Noise 2012</td>
+        </tr>
+      </tbody></table>
     </a>
+
+    <!--       <input type="checkbox" id="myCheck" value='railnight' checked>Night Rail Noise 2019</input><br>
+      <input type="checkbox" id="myCheck" value='roadnight' checked>Night Road Noise 2019</input><br>
+      <input type="checkbox" id="myCheck" value='lhrnight' checked>Night Aircraft Noise 2019</input><br>
+      <input type="checkbox" id="myCheck" value='railday' checked>Day Rail Noise 2019</input><br>
+      <input type="checkbox" id="myCheck" value='roadday' checked>Day Road Noise 2019</input><br>
+      <input type="checkbox" id="myCheck" value='lhrday' checked>Day Aircraft Noise 2019</input><br> -->
+    <!--     </a> -->
   </div>
 
 
   <div class="map-overlay" id="features">
     <h2 id="title">London Ward Population Data</h2>
-    <h3 id="pd"> click on the ward for details </h3>
+    <h5 id="pd"><b></b></h5>
+    <a><b> ( click on the map for population data )</b></a>
   </div>
 
-  <div class="map-overlay" id="legend">    
-        <h> Legend </h>
-        <div class="w240 round shadow-darken10 px10 py10 txt-s">
-          <strong class="block mb6">Road Noise</strong>
-          <div class="grid mb6">
-            <div class="col bg-green-faint h12"></div>
-            <div class="col bg-green-light h12"></div>
-            <div class="col bg-green h12"></div>
-            <div class="col bg-green-dark h12"></div>
-          </div>
-          <div class="grid txt-xs">
-            <div class="col align-center">&gt;50</div>
-            <div class="col align-center">&gt;55</div>
-            <div class="col align-center">&gt;60</div>
-            <div class="col align-center">&gt;70</div>
-            <div class="col align-center">&gt;75</div>
-          </div>
-        </div>
-         <div class="w240 round shadow-darken10 px10 py10 txt-s">
-          <strong class="block mb6">Rail Noise</strong>
-          <div class="grid mb5">
-            <div class="col bg-red-faint h12"></div>
-            <div class="col bg-red-light h12"></div>
-            <div class="col bg-red h12"></div>
-            <div class="col bg-red-dark h12"></div>
-          </div>
-          <div class="grid txt-xs">
-            <div class="col align-center">&gt;50</div>
-            <div class="col align-center">&gt;55</div>
-            <div class="col align-center">&gt;60</div>
-            <div class="col align-center">&gt;70</div>
-            <div class="col align-center">&gt;75</div>
-          </div>
-        </div>
-        <div class="w240 round shadow-darken10 px10 py10 txt-s">
-          <strong class="block mb5">Aircraf Noise</strong>
-          <div class="grid mb6">
-            <div class="col bg-yellow-faint h12"></div>
-            <div class="col bg-yellow-light h12"></div>
-            <div class="col bg-yellow h12"></div>
-            <div class="col bg-yellow h12"></div>
-            <div class="col bg-yellow-dark h12"></div>
-          </div>
-          <div class="grid txt-xs">
-            <div class="col align-center">&gt;50</div>
-            <div class="col align-center">&gt;55</div>
-            <div class="col align-center">&gt;60</div>
-            <div class="col align-center">&gt;70</div>
-            <div class="col align-center">&gt;75</div>
-          </div>
-        </div>
+  <div class="map-overlay" id="legend">
+    <div class="w240 round shadow-darken10 px10 py10 txt-s">
+      <strong class="block mb6 align-center">Road Noise (dB)</strong>
+      <div class="grid mb6">
+        <div class="col bg-red1 h12"></div>
+        <div class="col bg-red2 h12"></div>
+        <div class="col bg-red3 h12"></div>
+        <div class="col bg-red4 h12"></div>
+        <div class="col bg-red5 h12"></div>
+        <div class="col bg-red6 h12"></div>
+      </div>
+      <div class="grid txt-xs">
+        <div class="col align-center">&gt;50</div>
+        <div class="col align-center">&gt;55</div>
+        <div class="col align-center">&gt;60</div>
+        <div class="col align-center">&gt;65</div>
+        <div class="col align-center">&gt;70</div>
+        <div class="col align-center">&gt;75</div>
+      </div>
+    </div>
+    <div class="w240 round shadow-darken10 px10 py10 txt-s">
+      <strong class="block mb6 align-center">Rail Noise (dB)</strong>
+      <div class="grid mb5">
+        <div class="col bg-green1 h12"></div>
+        <div class="col bg-green2 h12"></div>
+        <div class="col bg-green3 h12"></div>
+        <div class="col bg-green4 h12"></div>
+        <div class="col bg-green5 h12"></div>
+        <div class="col bg-green6 h12"></div>
+      </div>
+      <div class="grid txt-xs">
+        <div class="col align-center">&gt;50</div>
+        <div class="col align-center">&gt;55</div>
+        <div class="col align-center">&gt;60</div>
+        <div class="col align-center">&gt;65</div>
+        <div class="col align-center">&gt;70</div>
+        <div class="col align-center">&gt;75</div>
+      </div>
+    </div>
+    <div class="w240 round shadow-darken10 px10 py10 txt-s">
+      <strong class="block mb5 align-center">Aircraft Noise (dB)</strong>
+      <div class="grid mb6">
+        <div class="col bg-yellow1 h12"></div>
+        <div class="col bg-yellow2 h12"></div>
+        <div class="col bg-yellow3 h12"></div>
+        <div class="col bg-yellow4 h12"></div>
+        <div class="col bg-yellow5 h12"></div>
+        <div class="col bg-yellow6 h12"></div>
+        <div class="col bg-yellow7 h12"></div>
+        <div class="col bg-yellow8 h12"></div>
+        <div class="col bg-yellow9 h12"></div>
+      </div>
+      <div class="grid txt-xs">
+        <div class="col align-center">&gt;48</div>
+        <div class="col align-center">&gt;51</div>
+        <div class="col align-center">&gt;54</div>
+        <div class="col align-center">&gt;57</div>
+        <div class="col align-center">&gt;60</div>
+        <div class="col align-center">&gt;63</div>
+        <div class="col align-center">&gt;66</div>
+        <div class="col align-center">&gt;69</div>
+        <div class="col align-center">&gt;72</div>
+      </div>
+    </div>
   </div>
 
   <div class="map-overlay" id="graph">
-    <!--     <div><h2> Population Impacted</h2></div>
-    <div id='gd' style="text-align: center"></div> -->
   </div>
 
   <script src="sketch.js"></script>
@@ -112,6 +154,9 @@
       center: [-0.131759, 51.492514],
       zoom: 11.0
     });
+    var popup = new mapboxgl.Popup({
+      closeButton: false
+    });
 
     beforeMap.on('load', function() {
       beforeMap.setLayoutProperty('roadday', 'visibility', 'none');
@@ -120,6 +165,53 @@
       beforeMap.setLayoutProperty('roadnight', 'visibility', 'visible');
       beforeMap.setLayoutProperty('railnight', 'visibility', 'visible');
       beforeMap.setLayoutProperty('lhrnight', 'visibility', 'visible');
+
+      beforeMap.setLayoutProperty('roadday2012', 'visibility', 'none');
+      beforeMap.setLayoutProperty('railday2012', 'visibility', 'none');
+      beforeMap.setLayoutProperty('roadnight2012', 'visibility', 'none');
+      beforeMap.setLayoutProperty('railnight2012', 'visibility', 'none');
+
+      beforeMap.on('mousemove', 'railnight', function(e) {
+        beforeMap.getCanvas().style.cursor = 'pointer';
+        var feature = e.features[0];
+        popup.setLngLat(e.lngLat)
+          .setHTML('<p>' + feature.properties.noiseclass + ' dB</p>')
+          .addTo(beforeMap);
+      });
+
+      beforeMap.on('mouseleave', 'railnight', function() {
+        beforeMap.getCanvas().style.cursor = '';
+        popup.remove();
+      });
+
+
+      beforeMap.on('mousemove', 'roadnight', function(e) {
+        beforeMap.getCanvas().style.cursor = 'pointer';
+        var feature = e.features[0];
+        popup.setLngLat(e.lngLat)
+          .setHTML('<p>' + feature.properties.noiseclass + ' dB</p>')
+          .addTo(beforeMap);
+      });
+
+      beforeMap.on('mouseleave', 'roadnight', function() {
+        beforeMap.getCanvas().style.cursor = '';
+        popup.remove();
+      });
+
+
+      beforeMap.on('mousemove', 'lhrnight', function(e) {
+        beforeMap.getCanvas().style.cursor = 'pointer';
+        var feature = e.features[0];
+        popup.setLngLat(e.lngLat)
+          .setHTML('<p>' + feature.properties.layer + ' dB</p>')
+          .addTo(beforeMap);
+      });
+
+      beforeMap.on('mouseleave', 'lhrnight', function() {
+        beforeMap.getCanvas().style.cursor = '';
+        popup.remove();
+      });
+
     });
 
     var afterMap = new mapboxgl.Map({
@@ -136,7 +228,53 @@
       afterMap.setLayoutProperty('roadnight', 'visibility', 'none');
       afterMap.setLayoutProperty('railnight', 'visibility', 'none');
       afterMap.setLayoutProperty('lhrnight', 'visibility', 'none');
+
+      afterMap.setLayoutProperty('roadnight2012', 'visibility', 'none');
+      afterMap.setLayoutProperty('railnight2012', 'visibility', 'none');
+      afterMap.setLayoutProperty('roadday2012', 'visibility', 'none');
+      afterMap.setLayoutProperty('railday2012', 'visibility', 'none');
+
+      afterMap.on('mousemove', 'railday', function(e) {
+        afterMap.getCanvas().style.cursor = 'pointer';
+        var feature = e.features[0];
+        popup.setLngLat(e.lngLat)
+          .setHTML('<p>' + feature.properties.noiseclass + ' dB</p>')
+          .addTo(afterMap);
+      });
+
+      afterMap.on('mouseleave', 'railday', function() {
+        afterMap.getCanvas().style.cursor = '';
+        popup.remove();
+      });
+
+      afterMap.on('mousemove', 'roadday', function(e) {
+        afterMap.getCanvas().style.cursor = 'pointer';
+        var feature = e.features[0];
+        popup.setLngLat(e.lngLat)
+          .setHTML('<p>' + feature.properties.noiseclass + ' dB</p>')
+          .addTo(afterMap);
+      });
+
+      afterMap.on('mouseleave', 'roadday', function() {
+        afterMap.getCanvas().style.cursor = '';
+        popup.remove();
+      });
+
+      afterMap.on('mousemove', 'lhrday', function(e) {
+        afterMap.getCanvas().style.cursor = 'pointer';
+        var feature = e.features[0];
+        popup.setLngLat(e.lngLat)
+          .setHTML('<p>' + feature.properties.noiseclass + ' dB</p>')
+          .addTo(afterMap);
+      });
+
+      afterMap.on('mouseleave', 'lhrday', function() {
+        afterMap.getCanvas().style.cursor = '';
+        popup.remove();
+      });
+
     });
+
 
     var map = new mapboxgl.Compare(beforeMap, afterMap, {});
 
@@ -147,11 +285,11 @@
       var ward = e.features[0].properties.Name;
       var areainhect = e.features[0].properties.Hectares;
       var population = e.features[0].properties.Population;
-      var dispStr = '<a> London Borough     :<a><a1>' + borough + '</a1><br>';
-      dispStr += '<a> Ward Name          :<a><a1>' + ward + '</a1><br>'
-      dispStr += '<a> Total Population   :<a><a1>' + (population.toFixed(2)).toString() + '</a1><br>'
-      dispStr += '<a> Area in Hectares   :<a><a1>' + (areainhect.toFixed(2)).toString() + '</a1><br>'
-      dispStr += '<a> Population Density :<a><a1>' + ((population / areainhect).toFixed(2)).toString() + '</a1> per hectare<br>'
+      var dispStr = 'London Borough     : <b>' + borough + '</b><br>';
+      dispStr += 'Ward Name          : <b>' + ward + '</b><br>';
+      dispStr += 'Total Population   : <b>' + (population.toFixed(2)).toString() + '</b><br>';
+      dispStr += 'Area in Hectares   : <b>' + (areainhect.toFixed(2)).toString() + '</b><br>';
+      dispStr += 'Population Density : <b>' + ((population / areainhect).toFixed(2)).toString() + '</b> per hectare';
       document.getElementById('pd').innerHTML = dispStr;
 
     });
@@ -161,15 +299,16 @@
       var ward = e.features[0].properties.Name;
       var areainhect = e.features[0].properties.Hectares;
       var population = e.features[0].properties.Population;
-      var dispStr = '<a> London Borough     :<a><a1>' + borough + '</a1><br>';
-      dispStr += '<a> Ward Name          :<a><a1>' + ward + '</a1><br>'
-      dispStr += '<a> Total Population   :<a><a1>' + (population.toFixed(2)).toString() + '</a1><br>'
-      dispStr += '<a> Area in hectaure   :<a><a1>' + (areainhect.toFixed(2)).toString() + '</a1><br>'
-      dispStr += '<a> Population Density :<a><a1>' + ((population / areainhect).toFixed(2)).toString() + '</a1> per Hectare<br>'
+      var dispStr = 'London Borough     : <b>' + borough + '</b><br>';
+      dispStr += 'Ward Name          : <b>' + ward + '</b><br>';
+      dispStr += 'Total Population   : <b>' + (population.toFixed(2)).toString() + '</b><br>';
+      dispStr += 'Area in Hectares   : <b>' + (areainhect.toFixed(2)).toString() + '</b><br>';
+      dispStr += 'Population Density : <b>' + ((population / areainhect).toFixed(2)).toString() + '</b> per hectare';
       document.getElementById('pd').innerHTML = dispStr;
     });
 
     document.getElementById('DataLayers').addEventListener('change', function(e) {
+
       var selLayer = e.target.value;
       if (e.target.checked) {
         if (selLayer.includes('day')) {
@@ -184,6 +323,9 @@
           beforeMap.setLayoutProperty(selLayer, 'visibility', 'none');
         }
       }
+
+
+
     });
     //     beforeMap.on('click', function(e){
 
