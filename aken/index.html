@@ -21,10 +21,26 @@
         top: 0;
         left: 0;
         padding: 10px;
+        background: rgba(255, 255, 255, 0.8);
     }
 
-    .map-overlay .map-overlay-inner {
-        background-color: #fff;
+    .map-overlay .map-overlay-innero3 {
+        background-color: #e1e0e0;
+        box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
+        border-radius: 3px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .map-overlay-innerpm10 {
+        background-color: #e1e0e0;
+        box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
+        border-radius: 3px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    .map-overlay-innerpm25 {
+        background-color: #e1e0e0;
         box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
         border-radius: 3px;
         padding: 10px;
@@ -37,10 +53,20 @@
         margin: 0 0 10px;
     }
 
-    .map-overlay .legend .bar {
+     .map-overlay .legendo3 .baro3 {
         height: 10px;
         width: 100%;
-        background: linear-gradient(to right, #FCA107, #7F3121);
+        background: linear-gradient(to right, #cdf9fe, #026873);
+    }
+    .legendpm10 .barpm10 {
+        height: 10px;
+        width: 100%;
+        background: linear-gradient(to right, #fdfcd8, #595603);
+    }
+    .legendpm25 .barpm25 {
+        height: 10px;
+        width: 100%;
+        background: linear-gradient(to right, #7F6588, #FA8965);
     }
 
     .map-overlay input {
@@ -106,17 +132,17 @@
     }
 
     #menu a:hover {
-        background-color: #f8f8f8;
+        background-color: #577275;
         color: #404040;
     }
 
     #menu a.active {
-        background-color: #3887be;
+        background-color: #577275;
         color: #ffffff;
     }
 
     #menu a.active:hover {
-        background: #3074a4;
+        background: #577275;
     }
 
 
@@ -126,26 +152,41 @@
 <nav id="menu"></nav>
 <div id="search">
     <input id="searchText" type="text" style="width: 100px">
-    <input type="button" value="查找" onclick="btnSearch()">
+    <input type="button" value="Search" onclick="btnSearch()">
 </div>
 <div id='map'></div>
-<div class='map-overlay1' id='features'><h3>即时信息显示：</h3><div id='pd'><p>Hover over a state!</p></div></div>
+<div class='map-overlay1' id='features'><h3>Information Box：</h3><div id='pd'><p>Hover over a state!</p></div></div>
 <div class='map-overlay top'>
     <div class='map-overlay-inner'>
-        <h2>时间滑块</h2>
+        <h2> Air Quality in Europe Cities</h2>
         <label id='year'></label>
         <input id='slider' type='range' min='0' max='9' step='1' value='0' />
+         <p class="credit">Air quality Data in Europe: <a href="https://data.europa.eu/euodp/data/dataset/data_interpolated-air-quality-data-2">European Union open data</a></p>
     </div>
-    <div class='map-overlay-inner'>
-        <div id='legend' class='legend'>
-            <div class='bar'></div>
-            <div>图例</div>
+    <div class='map-overlay-innero3'>
+        <div id='legendo3' class='legendo3'>
+            <div class='baro3'></div>
+            <div>o3</div>
+        </div>
+    </div>
+
+    <div class='map-overlay-innerpm10'>
+        <div id='legendpm10' class='legendpm10'>
+            <div class='barpm10'></div>
+            <div>pm10</div>
+        </div>
+    </div>
+
+    <div class='map-overlay-innerpm25'>
+        <div id='legendpm25' class='legendpm25'>
+            <div class='barpm25'></div>
+            <div>pm2.5</div>
         </div>
     </div>
 </div>
 
-<!--<script src='//d3js.org/d3.v3.min.js' charset='utf-8'></script>-->
-<script src="d3.v3.min.js" charset="utf-8"></script>
+<script src='//d3js.org/d3.v3.min.js' charset='utf-8'></script>
+<!--<script src="d3.v3.min.js" charset="utf-8"></script>-->
 <script>
     var globalO3Data;
     var globalPM10Data;
@@ -154,11 +195,15 @@
     mapboxgl.accessToken = 'pk.eyJ1Ijoid3h5MjcwMDE3IiwiYSI6ImNqdnZ6M2c3cDF3aHA0OGxxM2kzeTNxNnAifQ.ia9AAKRFtlBnPMpTGdYhwg';
     var map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/light-v10',
-        center: [31.4606, 20.7927],
-        zoom: 0.5
+        style: 'mapbox://styles/mapbox/dark-v9',
+        center: [3.2, 50.5], // starting position [lng, lat]
+        zoom:3// starting zoom
     });
-
+    
+   // Add zoom and rotation controls to the map.
+  map.addControl(new mapboxgl.NavigationControl());
+  
+    
     var years = [
         '2006',
         '2007',
@@ -223,16 +268,26 @@
                         'interpolate',
                         ['linear'],
                         ['get', 'o3_p932'],
-                        3, '#FCA107',
-                        4, '#7F3121'
+                         80, '#cdf9fe',
+                         90, '#8cf1fd',
+                         100, '#1ec9dc',
+                         110, '#07bbcf',
+                         120, '#24a0ae',
+                         130, '#037581',
+                         150, '#026873'
                     ],
                     'circle-opacity': 0.75,
                     'circle-radius': [
                         'interpolate',
                         ['linear'],
                         ['get', 'o3_p932'],
-                        3, 5,
-                        4, 10
+                         80, 1,
+                         90, 2,
+                         100, 4,
+                         110, 5,
+                         120, 6,
+                         130, 8,
+                         150, 10
                     ]
                 }
             });
@@ -285,16 +340,26 @@
                         'interpolate',
                         ['linear'],
                         ['get', 'pm10_avg'],
-                        3, '#7F6588',
-                        10, '#FA5289'
+                         16, '#fdfcd8',
+                         19, '#fbf8a7',
+                         22, '#f7f026',
+                         25, '#e7e008',
+                         27, '#beb809',
+                         30, '#8e8906',
+                         40, '#595603'
                     ],
                     'circle-opacity': 0.75,
                     'circle-radius': [
                         'interpolate',
                         ['linear'],
                         ['get', 'pm10_avg'],
-                        3, 5,
-                        10, 10
+                          16, 1,
+                         19, 2,
+                         22, 4,
+                         25, 5,
+                         27, 6,
+                         30, 8,
+                         40, 10
                     ]
                 }
             });
@@ -347,16 +412,26 @@
                         'interpolate',
                         ['linear'],
                         ['get', 'avg15'],
-                        3, '#7F6588',
-                        10, '#FA8965'
+                          8, '#cefdce',
+                         11, '#abfcab',
+                         14, '#62f962',
+                         17, '#1bde1b',
+                         20, '#0bbc0b',
+                         25, '#058f05',
+                         30, '#025f02'
                     ],
                     'circle-opacity': 0.75,
                     'circle-radius': [
                         'interpolate',
                         ['linear'],
                         ['get', 'avg15'],
-                        3, 5,
-                        10, 10
+                         8, 1,
+                         11, 2,
+                         14, 4,
+                         17, 5,
+                         20, 6,
+                         25, 8,
+                         30, 10
                     ]
                 }
             });
@@ -394,7 +469,7 @@
 
         if (states.length > 0) {
             console.log("stats:",states);
-            document.getElementById('pd').innerHTML = '<h3><strong>' + states[0].properties.stat_name + '</strong></h3><p><strong><em>' + states[0].properties.o3_somo35 + '</strong></em></p>';
+            document.getElementById('pd').innerHTML = '<h3><strong>' + states[0].properties.stat_name + '</strong></h3><p><strong><em>' + states[0].properties.o3_p932 + '</strong></em></p>';
         } else {
             document.getElementById('pd').innerHTML = '<p> </p>';
         }
@@ -451,7 +526,7 @@
         }
         if(!SearchOK)
         {
-            alert("没有查找到!");
+            alert("Can not find that location can you be more specific");
         }
     }
 </script>
