@@ -1,122 +1,541 @@
 <!DOCTYPE html>
 <html>
 <head>
- <meta charset='utf-8' />
- <title>Display a map</title>
- <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
- <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js'></script>
- <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' rel='stylesheet'
-/>
- <style>
- body { margin:0; padding:0; }
- #map { position:absolute; top:0; bottom:0; width:100%; }
-     
-h2,
-h3 {
-  margin: 10px;
-  font-size: 1.2em;
-}
-
-h3 {
-  font-size: 1em;
-}
-
-p {
-  font-size: 0.85em;
-  margin: 10px;
-  text-align: left;
-}
-
-/**
-* Create a position for the map
-* on the page */
-#map {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-}
-
-/**
-* Set rules for how the map overlays
-* (information box and legend) will be displayed
-* on the page. */
-.map-overlay {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.8);
-  margin-right: 20px;
-  font-family: Arial, sans-serif;
-  overflow: auto;
-  border-radius: 3px;
-}
-
-#features {
-  top: 0;
-  height: 100px;
-  margin-top: 20px;
-  width: 250px;
-}
-
-#legend {
-  padding: 10px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  line-height: 18px;
-  height: 150px;
-  margin-bottom: 40px;
-  width: 100px;
-}
-
-.legend-key {
-  display: inline-block;
-  border-radius: 20%;
-  width: 10px;
-  height: 10px;
-  margin-right: 5px;
-}
- </style>
+    <meta charset='utf-8' />
+    <title>Create a time slider</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
 </head>
 <body>
-<div id='map'></div>
-     <div id='map'></div>
-<div class='map-overlay' id='features'><h2>European air quality maps of ozone</h2><div id='pd'><p>Ozone, 8-hour mean (MCG/m 3)</p></div></div>
-   
-<div class='map-overlay' id='legend'></div>
-    
-<script>
-mapboxgl.accessToken =
-'pk.eyJ1IjoiYWtlbmpzbSIsImEiOiJjanQzcjNzcTQweGh1NDVwcWo4bm41aGg5In0.OLb8_RjNen5BxZYbqG5c9g'; // Putyour Mapbox Public Access token here
- // Load a new map in the 'map' HTML div
- var map = new mapboxgl.Map({
- container: 'map', // container id
- style: 'mapbox://styles/akenjsm/cjvvnw8iy4bze1cqq5vftuotb', // style location
- center: [1.2, 50.5], // starting position [lng, lat]
- zoom: 4 // starting zoom
- });
-    
-    // Add zoom and rotation controls to the map.
-  map.addControl(new mapboxgl.NavigationControl());
-    
-    map.on('load', function() {
-  // the rest of the code will go in here
-var layers = ['-9999-33', '34-66', '67-100', '101-120', '121-140', '141-160', '161-170', '171'];
-var colors = ['#FFEDA0', '#FED976', '#FEB24C', '#FD8D3C', '#FC4E2A', '#E31A1C', '#BD0026', '#800026'];
-  for (i = 0; i < layers.length; i++) {
-  var layer = layers[i];
-  var color = colors[i];
-  var item = document.createElement('div');
-  var key = document.createElement('o3_26hdm');
-  key.className = 'legend-key';
-  key.style.backgroundColor = color;
 
-  var value = document.createElement('o3_26hdm');
-  value.innerHTML = layer;
-  item.appendChild(key);
-  item.appendChild(value);
-  legend.appendChild(item);
-}
-});
+<style>
+    .map-overlay {
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        position: absolute;
+        width: 25%;
+        top: 0;
+        left: 0;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    .map-overlay .map-overlay-innero3 {
+        background-color: #e1e0e0;
+        box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
+        border-radius: 3px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .map-overlay-innerpm10 {
+        background-color: #e1e0e0;
+        box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
+        border-radius: 3px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    .map-overlay-innerpm25 {
+        background-color: #e1e0e0;
+        box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
+        border-radius: 3px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .map-overlay h2 {
+        line-height: 24px;
+        display: block;
+        margin: 0 0 10px;
+    }
+
+     .map-overlay .legendo3 .baro3 {
+        height: 10px;
+        width: 100%;
+        background: linear-gradient(to right, #cdf9fe, #026873);
+    }
+    .legendpm10 .barpm10 {
+        height: 10px;
+        width: 100%;
+        background: linear-gradient(to right, #fdfcd8, #595603);
+    }
+    .legendpm25 .barpm25 {
+        height: 10px;
+        width: 100%;
+        background: linear-gradient(to right, #7F6588, #FA8965);
+    }
+
+    .map-overlay input {
+        background-color: transparent;
+        display: inline-block;
+        width: 100%;
+        position: relative;
+        margin: 0;
+        cursor: ew-resize;
+    }
+
+     .map-overlay1 {
+        position: absolute;
+        bottom: 100px;
+        right: 0;
+        background: rgba(255, 255, 255, 0.8);
+        margin-right: 20px;
+        font-family: Arial, sans-serif;
+        overflow: auto;
+        height: 20px;
+        border-radius: 3px;
+    }
+
+    #features {
+        bottom: 10px;
+        height: 150px;
+        /*margin-top: 20px;*/
+        width: 250px;
+    }
+    #search
+    {
+        position:absolute ;
+        top: 150px;
+        right: 20px;
+        z-index: 1;
+    }
+    #menu {
+        background: #fff;
+        position: absolute;
+        z-index: 1;
+        top: 10px;
+        right: 10px;
+        border-radius: 3px;
+        width: 120px;
+        border: 1px solid rgba(0,0,0,0.4);
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    #menu a {
+        font-size: 13px;
+        color: #404040;
+        display: block;
+        margin: 0;
+        padding: 0;
+        padding: 10px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0,0,0,0.25);
+        text-align: center;
+    }
+
+    #menu a:last-child {
+        border: none;
+    }
+
+    #menu a:hover {
+        background-color: #577275;
+        color: #404040;
+    }
+
+    #menu a.active {
+        background-color: #577275;
+        color: #ffffff;
+    }
+
+    #menu a.active:hover {
+        background: #577275;
+    }
+
+
+
+</style>
+
+<nav id="menu"></nav>
+<div id="search">
+    <input id="searchText" type="text" style="width: 100px">
+    <input type="button" value="Search" onclick="btnSearch()">
+</div>
+<div id='map'></div>
+<div class='map-overlay1' id='features'><h3>Information Box：</h3><div id='pd'><p>Hover over a state!</p></div></div>
+<div class='map-overlay top'>
+    <div class='map-overlay-inner'>
+        <h2> Air Quality in Europe Cities</h2>
+        <label id='year'></label>
+        <input id='slider' type='range' min='0' max='9' step='1' value='0' />
+         <p class="credit">Air quality Data in Europe: <a href="https://data.europa.eu/euodp/data/dataset/data_interpolated-air-quality-data-2">European Union open data</a></p>
+    </div>
+    <div class='map-overlay-innero3'>
+        <div id='legendo3' class='legendo3'>
+            <div class='baro3'></div>
+            <div>o3</div>
+        </div>
+    </div>
+
+    <div class='map-overlay-innerpm10'>
+        <div id='legendpm10' class='legendpm10'>
+            <h2>Casualty</h2>
+            <div class='barpm10'></div>
+            <div class='label'>0</div>
+           <div class='label'>1</div>
+            <div class='label'>2</div>
+            <div class='label'>3</div>
+            <div class='label'>4</div>
+            <div class='label'>5+</div>
+        </div>
+    </div>
+
+    <div class='map-overlay-innerpm25'>
+        <div id='legendpm25' class='legendpm25'>
+            <div class='barpm25'></div>
+            <div>pm2.5</div>
+        </div>
+    </div>
+</div>
+
+<script src='//d3js.org/d3.v3.min.js' charset='utf-8'></script>
+<!--<script src="d3.v3.min.js" charset="utf-8"></script>-->
+<script>
+    var globalO3Data;
+    var globalPM10Data;
+    var globalPM25Data;
+
+    mapboxgl.accessToken = 'pk.eyJ1Ijoid3h5MjcwMDE3IiwiYSI6ImNqdnZ6M2c3cDF3aHA0OGxxM2kzeTNxNnAifQ.ia9AAKRFtlBnPMpTGdYhwg';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/dark-v9',
+        center: [3.2, 50.5], // starting position [lng, lat]
+        zoom:3// starting zoom
+    });
+    
+   // Add zoom and rotation controls to the map.
+  map.addControl(new mapboxgl.NavigationControl());
+  
+    
+    var years = [
+        '2006',
+        '2007',
+        '2008',
+        '2009',
+        '2010',
+        '2011',
+        '2012',
+        '2013',
+        '2014',
+        '2015'
+    ];
+
+    function filtero3By(year) {
+
+        var filters = ['==', 'year', year];
+        map.setFilter('o3', filters);
+        map.setFilter('o3label', filters);
+
+        // Set the label to the month
+        document.getElementById('year').textContent = years[year];
+    }
+    function filterpms10By(year) {
+
+        var filters = ['==', 'year', year];
+        map.setFilter('pm10', filters);
+        map.setFilter('pm10label', filters);
+
+        // Set the label to the month
+        document.getElementById('year').textContent = years[year];
+    }
+    function filterpm25By(year) {
+
+        var filters = ['==', 'year', year];
+        map.setFilter('pm25', filters);
+        map.setFilter('pm25label', filters);
+
+        // Set the label to the month
+        document.getElementById('year').textContent = years[year];
+    }
+    //var aaa=o3;
+    //console.log("aaa:",aaa);
+
+    map.on('load', function() {
+
+        d3.json('o3.json', function(err, data) {
+            if (err) throw err;
+
+            globalO3Data=data;
+            console.log("globalO3Data:",globalO3Data);
+            map.addSource('o3Source', {
+                'type': 'geojson',
+                data: data
+            });
+
+            map.addLayer({
+                'id': 'o3',
+                'type': 'circle',
+                'source': 'o3Source',
+                'paint': {
+                    'circle-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'o3_p932'],
+                         80, '#cdf9fe',
+                         90, '#8cf1fd',
+                         100, '#1ec9dc',
+                         110, '#07bbcf',
+                         120, '#24a0ae',
+                         130, '#037581',
+                         150, '#026873'
+                    ],
+                    'circle-opacity': 0.75,
+                    'circle-radius': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'o3_p932'],
+                         80, 1,
+                         90, 2,
+                         100, 4,
+                         110, 5,
+                         120, 6,
+                         130, 8,
+                         150, 10
+                    ]
+                }
+            });
+
+           /* map.addLayer({
+                'id': 'o3label',
+                'type': 'symbol',
+                'source': 'o3Source',
+                'layout': {
+                    'text-field': ['concat', ['to-string', ['get', 'o3_p932']]],
+                    'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
+                    'text-size': 12
+                },
+                'paint': {
+                    'text-color': 'rgba(0,0,0,0.5)'
+                }
+            });*/
+
+            // Set filter to first month of the year
+            // 0 = 2006
+            filtero3By(0);
+
+            document.getElementById('slider').addEventListener('input', function(e) {
+                var year = parseInt(e.target.value, 10);
+                console.log("year=",year);
+                filtero3By(year);
+            });
+        });
+    });
+
+    map.on('load', function() {
+
+        d3.json('pm10.json', function(err, data) {
+            if (err) throw err;
+
+            //第二个图层
+            globalPM10Data=data;
+            console.log("globalPM10Data:",globalPM10Data);
+            map.addSource('pm10Source', {
+                'type': 'geojson',
+                data: data
+            });
+
+            map.addLayer({
+                'id': 'pm10',
+                'type': 'circle',
+                'source': 'pm10Source',
+                'paint': {
+                    'circle-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'pm10_avg'],
+                         16, '#fdfcd8',
+                         19, '#fbf8a7',
+                         22, '#f7f026',
+                         25, '#e7e008',
+                         27, '#beb809',
+                         30, '#8e8906',
+                         40, '#595603'
+                    ],
+                    'circle-opacity': 0.75,
+                    'circle-radius': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'pm10_avg'],
+                          16, 1,
+                         19, 2,
+                         22, 4,
+                         25, 5,
+                         27, 6,
+                         30, 8,
+                         40, 10
+                    ]
+                }
+            });
+
+         /*   map.addLayer({
+                'id': 'pm10label',
+                'type': 'symbol',
+                'source': 'pm10Source',
+                'layout': {
+                    'text-field': ['concat', ['to-string', ['get', 'pm10_avg']]],
+                    'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
+                    'text-size': 12
+                },
+                'paint': {
+                    'text-color': 'rgba(0,0,0,0.5)'
+                }
+            });*/
+
+            // Set filter to first month of the year
+            // 0 = 2006
+            filterpms10By(0);
+
+            document.getElementById('slider').addEventListener('input', function(e) {
+                var year = parseInt(e.target.value, 10);
+                console.log("year=",year);
+                filterpms10By(year);
+            });
+        });
+    });
+
+    map.on('load', function() {
+
+        d3.json('pm25.json', function(err, data) {
+            if (err) throw err;
+
+            //第三个图层
+            globalPM25Data=data;
+            console.log("globalPM25Data:",globalPM25Data);
+            map.addSource('pm25Source', {
+                'type': 'geojson',
+                data: data
+            });
+
+            map.addLayer({
+                'id': 'pm25',
+                'type': 'circle',
+                'source': 'pm25Source',
+                'paint': {
+                    'circle-color': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'avg15'],
+                          8, '#cefdce',
+                         11, '#abfcab',
+                         14, '#62f962',
+                         17, '#1bde1b',
+                         20, '#0bbc0b',
+                         25, '#058f05',
+                         30, '#025f02'
+                    ],
+                    'circle-opacity': 0.75,
+                    'circle-radius': [
+                        'interpolate',
+                        ['linear'],
+                        ['get', 'avg15'],
+                         8, 1,
+                         11, 2,
+                         14, 4,
+                         17, 5,
+                         20, 6,
+                         25, 8,
+                         30, 10
+                    ]
+                }
+            });
+
+           /* map.addLayer({
+                'id': 'pm25label',
+                'type': 'symbol',
+                'source': 'pm25Source',
+                'layout': {
+                    'text-field': ['concat', ['to-string', ['get', 'avg15']]],
+                    'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
+                    'text-size': 12
+                },
+                'paint': {
+                    'text-color': 'rgba(0,0,0,0.5)'
+                }
+            });*/
+
+            // Set filter to first month of the year
+            // 0 = 2006
+            filterpm25By(0);
+
+            document.getElementById('slider').addEventListener('input', function(e) {
+                var year = parseInt(e.target.value, 10);
+                console.log("year=",year);
+                filterpm25By(year);
+            });
+        });
+    });
+    //地图监听事件
+    map.on('mousemove', function(e) {
+        var states = map.queryRenderedFeatures(e.point, {
+            layers: ['o3','pm10','pm25']
+        });
+
+        if (states.length > 0) {
+            console.log("stats:",states);
+            document.getElementById('pd').innerHTML = '<h3><strong>' + states[0].properties.stat_name + '</strong></h3><p><strong><em>' + states[0].properties.o3_p932 + '</strong></em></p>';
+        } else {
+            document.getElementById('pd').innerHTML = '<p> </p>';
+        }
+    });
+    map.getCanvas().style.cursor = 'default';
+
+    //图层切换
+    var toggleableLayerIds = [ 'o3', 'pm10','pm25' ];
+
+    for (var i = 0; i < toggleableLayerIds.length; i++) {
+        var id = toggleableLayerIds[i];
+
+        var link = document.createElement('a');      /* 创建a标签 */
+        link.href = '#';
+        link.className = 'active';
+        link.textContent = id;
+
+        link.onclick = function (e) {                /* 设置onclick事件回调函数 */
+            var clickedLayer = this.textContent;     /* textContent 属性设置或返回指定节点的文本内容，以及它的所有后代 */
+            e.preventDefault();
+            e.stopPropagation();
+
+            var visibility = map.getLayoutProperty(clickedLayer, 'visibility'); /* getLayoutProperty(layer, name) 返回指定style layer上名为name的layout属性的值*/
+
+            if (visibility === 'visible') {
+                map.setLayoutProperty(clickedLayer, 'visibility', 'none'); /* setLayoutProperty(layer, name, value)设置指定layer上名为name的layou属性的值 */
+                this.className = '';
+            } else {
+                this.className = 'active';
+                map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+            }
+        };
+
+        var layers = document.getElementById('menu');
+        layers.appendChild(link);
+    }
+
+
+    //搜索定位(判断名称，获得坐标，定位)
+    function btnSearch() {
+        var searchName=document.getElementById("searchText").value;
+        console.log("globalO3Data:",globalO3Data);
+        var SearchOK=false;
+        for(var i=0;i<globalO3Data.features.length;i++)
+        {
+            if(globalO3Data.features[i].properties.stat_name==searchName)
+            {
+                var cordinates=globalO3Data.features[i].geometry.coordinates;
+                var xy = new mapboxgl.LngLat(cordinates[0], cordinates[1]);
+                map.flyTo({center:xy,  zoom:12});
+                SearchOK=true;
+                break;
+            }
+        }
+        if(!SearchOK)
+        {
+            alert("Can not find that location can you be more specific");
+        }
+    }
 </script>
+
 </body>
 </html>
