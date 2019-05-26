@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head>
+    <!DOCTYPE html><html><head>
   <meta charset="utf-8">
   <title>London Noise Map</title>
 
@@ -165,7 +165,7 @@
     var popup = new mapboxgl.Popup({
       closeButton: false
     });
-
+    beforeMap.addControl(new mapboxgl.NavigationControl()); 
     beforeMap.on('load', function() {
       beforeMap.setLayoutProperty('roadday', 'visibility', 'none');
       beforeMap.setLayoutProperty('railday', 'visibility', 'none');
@@ -192,7 +192,7 @@
         popup.remove();
       });
 
-
+         
       beforeMap.on('mousemove', 'roadnight', function(e) {
         beforeMap.getCanvas().style.cursor = 'pointer';
         var feature = e.features[0];
@@ -257,8 +257,8 @@
       bearing: 158.43,
       pitch: 60.00
     });
-
-    afterMap.on('load', function() {
+      afterMap.addControl(new mapboxgl.NavigationControl()); 
+     afterMap.on('load', function() {
       afterMap.setLayoutProperty('roadday', 'visibility', 'visible');
       afterMap.setLayoutProperty('railday', 'visibility', 'none');
       afterMap.setLayoutProperty('lhrday', 'visibility', 'none');
