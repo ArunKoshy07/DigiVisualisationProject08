@@ -12,18 +12,23 @@
     widows:100%;
     padding: 140px 100px;
     color: #fff;
+    border-color:black;
 
 }
 .showcase h1{
     font-size: 40px, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-weight: 700;
     font-style: italic;   
+    border-width:3px;
+    border-color:#f44336;
     
 /*    text-transform: uppercase;*/
 }
 .showcase h2{
     font-size: 30px, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-weight: 500;
+    border-width:3px;
+    border-color:#f44336;  
 /*    text-transform: uppercase;*/
 }
 .showcase hr{
@@ -46,22 +51,22 @@
     margin:0;
 }
 .home .fa{
-    font-size:50px;
+    font-size:25px;
 }
 .air img{
     width:100%;
 }
 .air .fa{
-    font-size:50px;
+    font-size:25px;
 }
 .light .fa{
-    font-size:50px;
+    font-size:25px;
 }
 .waste .fa{
-    font-size:50px;
+    font-size:25px;
 }
 .noise .fa{
-    font-size:50px;
+    font-size:25px;
 }
 .noise iframe{
     height:800px;
