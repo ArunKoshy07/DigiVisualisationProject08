@@ -1,11 +1,22 @@
-// var option;
+
 
 
 function preload() {
-  // console.log(noiseJsonDat);
-
 }
 
+function setup() {
+
+  var dom = document.getElementById("graph");
+  var myChart = echarts.init(dom);
+  var app = {};
+  option = null;
+  echarts.init(document.getElementById('graph')).setOption({
+    series: {
+      type: 'line',
+      data: noiseJsonDat
+    }
+  });;
+}
 
 function setup() {
   var dom = document.getElementById("graph");
@@ -17,15 +28,15 @@ function setup() {
   var colors = ['#dc0404', '#dc9104', '#105610', '#103f56', '#6c05a8', '#a8053c'];
 
   option = {
-    color: colors,
-    title: {
-      text: '      Population Impacted',
-      // textStyle: {
-      //   fontStyle: 'italic',
-      // },
-      textAlign: 'left'
-    },
-    // grid{left:'10%'},
+    // color: colors,
+    // title: {
+    //   text: 'Population Impacted',
+    //   // textStyle: {
+    //   //   fontStyle: 'italic',
+    //   // },
+    //   textAlign: 'Center'
+    // },
+    // // grid{left:'10%'},
 
     tooltip: {
       trigger: 'axis',
@@ -61,7 +72,8 @@ function setup() {
       max: 2500000,
       splitNumber: 8,
       padding: 0,
-      position: 'left',
+      show: false,
+      position: 'right',
       axisLine: {
         lineStyle: {
           color: '#0f100f'
@@ -77,7 +89,32 @@ function setup() {
           fontSize: 5
         }
       }
-    }],
+    },
+           {
+      type: 'value',
+      name: 'Population\n(Millions)',
+      min: 0,
+      max: 2.5,
+      splitNumber: 4,
+      padding: 0,
+      position: 'left',
+      axisLine: {
+        lineStyle: {
+          color: '#0f100f'
+        }
+      },
+      margin: 30,
+      axisLabel: {
+        formatter: '{value}',
+        padding: 10
+      },
+      data: {
+        textStyle: {
+          fontSize: 4
+        }
+      }
+    }
+           ],
     series: [{
         name: 'Day Road Noise',
         type: 'line',
@@ -308,26 +345,57 @@ function getdB(layer, daynight) {
 
   if (daynight == 'd') {
     switch (layer.substring(0, 2)) {
-      case "x1": return '';break;
-      case "x2": return '';break;  
-      case "x3": return '';break;
-      case "x4": return '';break;
-      case "x5": return '';break;
-      case "x6": return '';break;          
-      default: return'na';
+      case "x1":
+        return '57-59';
+        break;
+      case "x2":
+        return '60-62';
+        break;
+      case "x3":
+        return '63-65';
+        break;
+      case "x4":
+        return '66-68';
+        break;
+      case "x5":
+        return '69-71';
+        break;
+      case "x6":
+        return '>72';
+        break;
+      default:
+        return 'na';
     }
-    } else {
+  } else {
     switch (layer.substring(0, 2)) {
-      case "x1": return '< 48';break;
-      case "x2": return '48-51';break;  
-      case "x3": return '51-54';break;
-      case "x4": return '54-57';break;
-      case "x5": return '57-60';break;
-      case "x6": return '60-63';break;
-      case "x7": return '63-66';break;
-      case "x8": return '66-69';break;
-      case "x9": return '>72';   
-      default: return'na';
+      case "x1":
+        return '48-50';
+        break;
+      case "x2":
+        return '51-53';
+        break;
+      case "x3":
+        return '54-56';
+        break;
+      case "x4":
+        return '57-59';
+        break;
+      case "x5":
+        return '60-62';
+        break;
+      case "x6":
+        return '63-65';
+        break;
+      case "x7":
+        return '66-68';
+        break;
+      case "x8":
+        return '68-72';
+        break;
+      case "x9":
+        return '>72';
+      default:
+        return 'na';
 
     }
   }
