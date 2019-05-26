@@ -5,17 +5,20 @@
     font-size:25px, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 .showcase{
-    background:url('../img/showcase.jpg') no-repeat;
+    background:url('../img/showcasecollage.jpg') no-repeat;
+/*    background:url('../img/Visualisation_Large');*/
     background-position: center;    
     height:600px;
     widows:100%;
     padding: 140px 100px;
     color: #fff;
+
 }
 .showcase h1{
     font-size: 40px, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-weight: 700;
-    font-style: italic;
+    font-style: italic;   
+    
 /*    text-transform: uppercase;*/
 }
 .showcase h2{
