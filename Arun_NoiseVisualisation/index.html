@@ -1,417 +1,420 @@
-    <!DOCTYPE html><html><head>
-  <meta charset="utf-8">
-  <title>London Noise Map</title>
+                    <!DOCTYPE html><html><head>
+                  <meta charset="utf-8">
+                  <title>London Noise Map</title>
 
-  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-  <script src="p5.min.js"></script>
-  <script src="p5.dom.min.js"></script>
-  <script src="p5.sound.min.js"></script>
-  <script src="mapbox-gl.js"></script>
-  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css" rel="stylesheet">
-  <script type="text/javascript" src="echarts.css"></script>
-  <script src="mapbox-gl-compare.js"></script>
-  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css" type="text/css">
-  <link href="https://api.mapbox.com/mapbox-assembly/v0.23.2/assembly.min.css" rel="stylesheet">
-  <script async="" defer="" src="assembly.js"></script>
+                  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+                  <script src="p5.min.js"></script>
+                  <script src="p5.dom.min.js"></script>
+                  <script src="p5.sound.min.js"></script>
+                  <script src="mapbox-gl.js"></script>
+                  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css" rel="stylesheet">
+                  <script type="text/javascript" src="echarts.css"></script>
+                  <script src="mapbox-gl-compare.js"></script>
+                  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css" type="text/css">
+                  <link href="https://api.mapbox.com/mapbox-assembly/v0.23.2/assembly.min.css" rel="stylesheet">
+                  <script async="" defer="" src="assembly.js"></script>
 
-  <script src="sketch.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+                  <script src="sketch.js"></script>
+                  <link rel="stylesheet" type="text/css" href="style.css">
+                </head>
 
-<body>
+                <body>
 
-  <div id="before" class="map"></div>
-  <div id="after" class="map"></div>
+                  <div id="before" class="map"></div>
+                  <div id="after" class="map"></div>
 
-  <div class="map-overlay" id="DataLayers">
-    <div class="w280 round shadow-darken10 px10 py10 txt-s border">
-      <strong class="block mb6 align-center ">Noise Data Layers in 2.5D</strong>
-      <div class="grid ">
-        <div class="col mb1 border border--dash"><strong class="block mb6 align-center">Left Map</strong></div>
-        <div class="col mb1 border border--dash"><strong class="block mb6 align-center">Right Map</strong></div>
-      </div>
-      <div class="grid">
-        <div class="col border-r border--dash"><input type="checkbox" id="myCheck" value="roadnight" checked="">Night Road Noise 2019</div>
-        <div class="col "><input type="checkbox" id="myCheck" value="roadday" checked="">Day Road Noise 2019</div>
-      </div>
-      <div class="grid">
-        <div class="col border-r border--dash"><input type="checkbox" id="myCheck" value="railnight">Night Rail Noise 2019</div>
-        <div class="col "><input type="checkbox" id="myCheck" value="railday">Day Rail Noise 2019</div>
-      </div>
-      <div class="grid">
-        <div class="col border-r"><input type="checkbox" id="myCheck" value="lhrnight">Night Aircraft Noise 2015</div>
-        <div class="col "><input type="checkbox" id="myCheck" value="lhrday">Day Aircraft Noise 2015</div>
-      </div>
-      <div class="grid">
-        <div class="col border-r border--dash"><input type="checkbox" id="myCheck" value="roadday2012">Day Road Noise 2012</div>
-        <div class="col "><input type="checkbox" id="myCheck" value="roadnight2012">Night Road Noise 2012</div>
-      </div>
-      <div class="grid">
-        <div class="col border-r border-b border--dash"><input type="checkbox" id="myCheck" value="railday2012">Day Rail Noise 2012</div>
-        <div class="col border-b "><input type="checkbox" id="myCheck" value="railnight2012">Night Rail Noise 2012</div>
-      </div>
-      <strong class="block align-center">select layers to view</strong>
-    </div>
-  </div>
-
-
-  <!--   <div class='map-overlay' id='features'>
-    <h2 id='title'>London Population Data (2018) </h2>
-    <h5 id='pd'><b></b></h5>
-    <a><b> ( click on the map for population data )</b></a>
-  </div> -->
-
-  <div class="map-overlay" id="features">
-    <div class="w300 h170 round shadow-darken10 px10 py10 txt-s">
-      <h2 id="title">London Population Data (2017) </h2>
-      <h5 id="pd"><b></b></h5>
-      <a><b> ( click on the map for population data )</b></a>
-    </div>
-  </div>
-
-  <div class="map-overlay" id="legend">
-    <div class="w240 round shadow-darken10 px10 py10 txt-s">
-      <strong class="block mb6 align-center">Road Noise (dB)</strong>
-      <div class="grid mb6">
-        <div class="col bg-red1 h12"></div>
-        <div class="col bg-red2 h12"></div>
-        <div class="col bg-red3 h12"></div>
-        <div class="col bg-red4 h12"></div>
-        <div class="col bg-red5 h12"></div>
-        <div class="col bg-red6 h12"></div>
-      </div>
-      <div class="grid txt-xs">
-        <div class="col align-center">&gt;50</div>
-        <div class="col align-center">&gt;55</div>
-        <div class="col align-center">&gt;60</div>
-        <div class="col align-center">&gt;65</div>
-        <div class="col align-center">&gt;70</div>
-        <div class="col align-center">&gt;75</div>
-      </div>
-    </div>
-    <div class="w240 round shadow-darken10 px10 py10 txt-s">
-      <strong class="block mb6 align-center">Rail Noise (dB)</strong>
-      <div class="grid mb5">
-        <div class="col bg-green1 h12"></div>
-        <div class="col bg-green2 h12"></div>
-        <div class="col bg-green3 h12"></div>
-        <div class="col bg-green4 h12"></div>
-        <div class="col bg-green5 h12"></div>
-        <div class="col bg-green6 h12"></div>
-      </div>
-      <div class="grid txt-xs">
-        <div class="col align-center">&gt;50</div>
-        <div class="col align-center">&gt;55</div>
-        <div class="col align-center">&gt;60</div>
-        <div class="col align-center">&gt;65</div>
-        <div class="col align-center">&gt;70</div>
-        <div class="col align-center">&gt;75</div>
-      </div>
-    </div>
-    <div class="w240 round shadow-darken10 px10 py10 txt-s">
-      <strong class="block mb5 align-center">Aircraft Noise (dB)</strong>
-      <div class="grid mb6">
-        <div class="col bg-yellow1 h12"></div>
-        <div class="col bg-yellow2 h12"></div>
-        <div class="col bg-yellow3 h12"></div>
-        <div class="col bg-yellow4 h12"></div>
-        <div class="col bg-yellow5 h12"></div>
-        <div class="col bg-yellow6 h12"></div>
-        <div class="col bg-yellow7 h12"></div>
-        <div class="col bg-yellow8 h12"></div>
-        <div class="col bg-yellow9 h12"></div>
-      </div>
-      <div class="grid txt-xs">
-        <div class="col align-center">&gt;48</div>
-        <div class="col align-center">&gt;51</div>
-        <div class="col align-center">&gt;54</div>
-        <div class="col align-center">&gt;57</div>
-        <div class="col align-center">&gt;60</div>
-        <div class="col align-center">&gt;63</div>
-        <div class="col align-center">&gt;66</div>
-        <div class="col align-center">&gt;69</div>
-        <div class="col align-center">&gt;72</div>
-      </div>
-    </div>
-    <div class="w240 round shadow-darken10 px10 py10 txt-s">
-      <strong class="block mb5 align-left style-italic"><br>
-        Data sources : WHO, DEFRA GOV.UK
-      </strong>
-    </div>
-  </div>
-
-  <div class="map-overlay" id="graphblock">
-    <strong class="block mb5 align-center">Population Impacted</strong>
-
-    <div class="map-overlay" id="graph">
-    </div>
-  </div>
+                  <div class="map-overlay" id="DataLayers">
+                    <div class="w280 round shadow-darken10 px10 py10 txt-s border">
+                      <strong class="block mb6 align-center ">Noise Data Layers in 2.5D</strong>
+                      <div class="grid ">
+                        <div class="col mb1 border border--dash"><strong class="block mb6 align-center">Left Map</strong></div>
+                        <div class="col mb1 border border--dash"><strong class="block mb6 align-center">Right Map</strong></div>
+                      </div>
+                      <div class="grid">
+                        <div class="col border-r border--dash"><input type="checkbox" id="myCheck" value="roadnight" checked="">Night Road Noise 2019</div>
+                        <div class="col "><input type="checkbox" id="myCheck" value="roadday" checked="">Day Road Noise 2019</div>
+                      </div>
+                      <div class="grid">
+                        <div class="col border-r border--dash"><input type="checkbox" id="myCheck" value="railnight">Night Rail Noise 2019</div>
+                        <div class="col "><input type="checkbox" id="myCheck" value="railday">Day Rail Noise 2019</div>
+                      </div>
+                      <div class="grid">
+                        <div class="col border-r"><input type="checkbox" id="myCheck" value="lhrnight">Night Aircraft Noise 2015</div>
+                        <div class="col "><input type="checkbox" id="myCheck" value="lhrday">Day Aircraft Noise 2015</div>
+                      </div>
+                      <div class="grid">
+                        <div class="col border-r border--dash"><input type="checkbox" id="myCheck" value="roadday2012">Day Road Noise 2012</div>
+                        <div class="col "><input type="checkbox" id="myCheck" value="roadnight2012">Night Road Noise 2012</div>
+                      </div>
+                      <div class="grid">
+                        <div class="col border-r border-b border--dash"><input type="checkbox" id="myCheck" value="railday2012">Day Rail Noise 2012</div>
+                        <div class="col border-b "><input type="checkbox" id="myCheck" value="railnight2012">Night Rail Noise 2012</div>
+                      </div>
+                      <strong class="block align-center">select layers to view</strong>
+                    </div>
+                  </div>
 
 
-  <script src="sketch.js"></script>
-  <script>
+                <!-- Overlay Block show the London Population Data -->
 
-  </script>
-  <script>
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYXJ1bmtvc2h5MTgiLCJhIjoiY2pxejNqMTl2MDdseTQ4cGNpdXN6OXE2ZiJ9.C9NoJtuiT9pDw5pyhYZxhQ';
-    var beforeMap = new mapboxgl.Map({
-      container: 'before',
-      style: 'mapbox://styles/arunkoshy18/cjvsuuxjh0z9n1coy83u2sy5k',
-      center: [-0.082387, 51.507383],
-      zoom: 15.19,
-      bearing: 158.43,
-      pitch: 60.00
-    });
-    var popup = new mapboxgl.Popup({
-      closeButton: false
-    });
-    beforeMap.addControl(new mapboxgl.NavigationControl()); 
-    beforeMap.on('load', function() {
-      beforeMap.setLayoutProperty('roadday', 'visibility', 'none');
-      beforeMap.setLayoutProperty('railday', 'visibility', 'none');
-      beforeMap.setLayoutProperty('lhrday', 'visibility', 'none');
-      beforeMap.setLayoutProperty('roadnight', 'visibility', 'visible');
-      beforeMap.setLayoutProperty('railnight', 'visibility', 'none');
-      beforeMap.setLayoutProperty('lhrnight', 'visibility', 'none');
+                  <div class="map-overlay" id="features">
+                    <div class="w300 h170 round shadow-darken10 px10 py10 txt-s">
+                      <h2 id="title">London Population Data (2017) </h2>
+                      <h5 id="pd"><b></b></h5>
+                      <a><b> ( click on the map for population data )</b></a>
+                    </div>
+                  </div>
 
-      beforeMap.setLayoutProperty('roadday2012', 'visibility', 'none');
-      beforeMap.setLayoutProperty('railday2012', 'visibility', 'none');
-      beforeMap.setLayoutProperty('roadnight2012', 'visibility', 'none');
-      beforeMap.setLayoutProperty('railnight2012', 'visibility', 'none');
+                <!-- Overlay Block show the Legend -->
+                  <div class="map-overlay" id="legend">
+                    <div class="w240 round shadow-darken10 px10 py10 txt-s">
+                      <strong class="block mb6 align-center">Road Noise (dB)</strong>
+                      <div class="grid mb6">
+                        <div class="col bg-red1 h12"></div>
+                        <div class="col bg-red2 h12"></div>
+                        <div class="col bg-red3 h12"></div>
+                        <div class="col bg-red4 h12"></div>
+                        <div class="col bg-red5 h12"></div>
+                        <div class="col bg-red6 h12"></div>
+                      </div>
+                      <div class="grid txt-xs">
+                        <div class="col align-center">&gt;50</div>
+                        <div class="col align-center">&gt;55</div>
+                        <div class="col align-center">&gt;60</div>
+                        <div class="col align-center">&gt;65</div>
+                        <div class="col align-center">&gt;70</div>
+                        <div class="col align-center">&gt;75</div>
+                      </div>
+                    </div>
+                    <div class="w240 round shadow-darken10 px10 py10 txt-s">
+                      <strong class="block mb6 align-center">Rail Noise (dB)</strong>
+                      <div class="grid mb5">
+                        <div class="col bg-green1 h12"></div>
+                        <div class="col bg-green2 h12"></div>
+                        <div class="col bg-green3 h12"></div>
+                        <div class="col bg-green4 h12"></div>
+                        <div class="col bg-green5 h12"></div>
+                        <div class="col bg-green6 h12"></div>
+                      </div>
+                      <div class="grid txt-xs">
+                        <div class="col align-center">&gt;50</div>
+                        <div class="col align-center">&gt;55</div>
+                        <div class="col align-center">&gt;60</div>
+                        <div class="col align-center">&gt;65</div>
+                        <div class="col align-center">&gt;70</div>
+                        <div class="col align-center">&gt;75</div>
+                      </div>
+                    </div>
+                    <div class="w240 round shadow-darken10 px10 py10 txt-s">
+                      <strong class="block mb5 align-center">Aircraft Noise (dB)</strong>
+                      <div class="grid mb6">
+                        <div class="col bg-yellow1 h12"></div>
+                        <div class="col bg-yellow2 h12"></div>
+                        <div class="col bg-yellow3 h12"></div>
+                        <div class="col bg-yellow4 h12"></div>
+                        <div class="col bg-yellow5 h12"></div>
+                        <div class="col bg-yellow6 h12"></div>
+                        <div class="col bg-yellow7 h12"></div>
+                        <div class="col bg-yellow8 h12"></div>
+                        <div class="col bg-yellow9 h12"></div>
+                      </div>
+                      <div class="grid txt-xs">
+                        <div class="col align-center">&gt;48</div>
+                        <div class="col align-center">&gt;51</div>
+                        <div class="col align-center">&gt;54</div>
+                        <div class="col align-center">&gt;57</div>
+                        <div class="col align-center">&gt;60</div>
+                        <div class="col align-center">&gt;63</div>
+                        <div class="col align-center">&gt;66</div>
+                        <div class="col align-center">&gt;69</div>
+                        <div class="col align-center">&gt;72</div>
+                      </div>
+                    </div>
+                    <div class="w240 round shadow-darken10 px10 py10 txt-s">
+                      <strong class="block mb5 align-left style-italic"><br>
+                        Data sources : WHO, DEFRA GOV.UK
+                      </strong>
+                    </div>
+                  </div>
 
-      beforeMap.on('mousemove', 'railnight', function(e) {
-        beforeMap.getCanvas().style.cursor = 'pointer';
-        var feature = e.features[0];
-        popup.setLngLat(e.lngLat)
-          .setHTML('<p>' + feature.properties.noiseclass + ' dB</p>')
-          .addTo(beforeMap);
-      });
-
-      beforeMap.on('mouseleave', 'railnight', function() {
-        beforeMap.getCanvas().style.cursor = '';
-        popup.remove();
-      });
-
-         
-      beforeMap.on('mousemove', 'roadnight', function(e) {
-        beforeMap.getCanvas().style.cursor = 'pointer';
-        var feature = e.features[0];
-        popup.setLngLat(e.lngLat)
-          .setHTML('<p>' + feature.properties.noiseclass + ' dB</p>')
-          .addTo(beforeMap);
-      });
-
-      beforeMap.on('mouseleave', 'roadnight', function() {
-        beforeMap.getCanvas().style.cursor = '';
-        popup.remove();
-      });
-
-
-      beforeMap.on('mousemove', 'lhrnight', function(e) {
-        beforeMap.getCanvas().style.cursor = 'pointer';
-        var feature = e.features[0];
-        popup.setLngLat(e.lngLat)
-          .setHTML('<p>' + getdB(feature.properties.layer, 'n') + ' dB</p>')
-          .addTo(beforeMap);
-      });
-
-      beforeMap.on('mouseleave', 'lhrnight', function() {
-        beforeMap.getCanvas().style.cursor = '';
-        popup.remove();
-      });
-
-      beforeMap.on('mousemove', 'roadday2012', function(e) {
-        beforeMap.getCanvas().style.cursor = 'pointer';
-        var feature = e.features[0];
-        popup.setLngLat(e.lngLat)
-          .setHTML('<p>' + feature.properties.NoiseClass + ' dB</p>')
-          .addTo(beforeMap);
-      });
-
-      beforeMap.on('mouseleave', 'roadday2012', function() {
-        beforeMap.getCanvas().style.cursor = '';
-        popup.remove();
-      });
-
-      beforeMap.on('mousemove', 'railday2012', function(e) {
-        beforeMap.getCanvas().style.cursor = 'pointer';
-        var feature = e.features[0];
-        popup.setLngLat(e.lngLat)
-          .setHTML('<p>' + feature.properties.NoiseClass + ' dB</p>')
-          .addTo(beforeMap);
-      });
-
-      beforeMap.on('mouseleave', 'railday2012', function() {
-        beforeMap.getCanvas().style.cursor = '';
-        popup.remove();
-      });
+                <!-- Overlay Block to show the Population Impacted Graph -->
+                  <div class="map-overlay" id="graphblock">
+                    <strong class="block mb5 align-center">Population Impacted</strong>
+                    <div class="map-overlay" id="graph">
+                    </div>
+                  </div>
 
 
-    });
+                  <script src="sketch.js"></script>
+                  <script>
 
-    var afterMap = new mapboxgl.Map({
-      container: 'after',
-      style: 'mapbox://styles/arunkoshy18/cjvsuuxjh0z9n1coy83u2sy5k',
-      center: [-0.082387, 51.507383],
-      zoom: 15.19,
-      bearing: 158.43,
-      pitch: 60.00
-    });
-      afterMap.addControl(new mapboxgl.NavigationControl()); 
-     afterMap.on('load', function() {
-      afterMap.setLayoutProperty('roadday', 'visibility', 'visible');
-      afterMap.setLayoutProperty('railday', 'visibility', 'none');
-      afterMap.setLayoutProperty('lhrday', 'visibility', 'none');
-      afterMap.setLayoutProperty('roadnight', 'visibility', 'none');
-      afterMap.setLayoutProperty('railnight', 'visibility', 'none');
-      afterMap.setLayoutProperty('lhrnight', 'visibility', 'none');
+                  </script>
+                  <script>
+                    mapboxgl.accessToken = 'pk.eyJ1IjoiYXJ1bmtvc2h5MTgiLCJhIjoiY2pxejNqMTl2MDdseTQ4cGNpdXN6OXE2ZiJ9.C9NoJtuiT9pDw5pyhYZxhQ';
+                // Declaring and Initializing the left Map
+                    var beforeMap = new mapboxgl.Map({
+                      container: 'before',
+                      style: 'mapbox://styles/arunkoshy18/cjvsuuxjh0z9n1coy83u2sy5k',
+                      center: [-0.082387, 51.507383],
+                      zoom: 15.19,
+                      bearing: 158.43,
+                      pitch: 60.00
+                    });
+                    var popup = new mapboxgl.Popup({
+                      closeButton: false
+                    });
 
-      afterMap.setLayoutProperty('roadnight2012', 'visibility', 'none');
-      afterMap.setLayoutProperty('railnight2012', 'visibility', 'none');
-      afterMap.setLayoutProperty('roadday2012', 'visibility', 'none');
-      afterMap.setLayoutProperty('railday2012', 'visibility', 'none');
+                //      Code to set layer visibiliy
+                    beforeMap.addControl(new mapboxgl.NavigationControl()); 
+                    beforeMap.on('load', function() {
+                      beforeMap.setLayoutProperty('roadday', 'visibility', 'none');
+                      beforeMap.setLayoutProperty('railday', 'visibility', 'none');
+                      beforeMap.setLayoutProperty('lhrday', 'visibility', 'none');
+                      beforeMap.setLayoutProperty('roadnight', 'visibility', 'visible');
+                      beforeMap.setLayoutProperty('railnight', 'visibility', 'none');
+                      beforeMap.setLayoutProperty('lhrnight', 'visibility', 'none');
 
-      afterMap.on('mousemove', 'railday', function(e) {
-        afterMap.getCanvas().style.cursor = 'pointer';
-        var feature = e.features[0];
-        popup.setLngLat(e.lngLat)
-          .setHTML('<p>' + feature.properties.noiseclass + ' dB</p>')
-          .addTo(afterMap);
-      });
+                      beforeMap.setLayoutProperty('roadday2012', 'visibility', 'none');
+                      beforeMap.setLayoutProperty('railday2012', 'visibility', 'none');
+                      beforeMap.setLayoutProperty('roadnight2012', 'visibility', 'none');
+                      beforeMap.setLayoutProperty('railnight2012', 'visibility', 'none');
 
-      afterMap.on('mouseleave', 'railday', function() {
-        afterMap.getCanvas().style.cursor = '';
-        popup.remove();
-      });
+                //Code for set the mouse hover effect 
+                      beforeMap.on('mousemove', 'railnight', function(e) {
+                        beforeMap.getCanvas().style.cursor = 'pointer';
+                        var feature = e.features[0];
+                        popup.setLngLat(e.lngLat)
+                          .setHTML('<p>' + feature.properties.noiseclass + ' dB</p>')
+                          .addTo(beforeMap);
+                      });
 
-      afterMap.on('mousemove', 'roadday', function(e) {
-        afterMap.getCanvas().style.cursor = 'pointer';
-        var feature = e.features[0];
-        popup.setLngLat(e.lngLat)
-          .setHTML('<p>' + feature.properties.noiseclass + ' dB</p>')
-          .addTo(afterMap);
-      });
-
-      afterMap.on('mouseleave', 'roadday', function() {
-        afterMap.getCanvas().style.cursor = '';
-        popup.remove();
-      });
-
-      afterMap.on('mousemove', 'lhrday', function(e) {
-        afterMap.getCanvas().style.cursor = 'pointer';
-        var feature = e.features[0];
-        popup.setLngLat(e.lngLat)
-          .setHTML('<p>' + getdB(feature.properties.layer, 'd') + ' dB</p>')
-          .addTo(afterMap);
-      });
-
-      afterMap.on('mouseleave', 'lhrday', function() {
-        afterMap.getCanvas().style.cursor = '';
-        popup.remove();
-      });
-
-      afterMap.on('mousemove', 'roadnight2012', function(e) {
-        afterMap.getCanvas().style.cursor = 'pointer';
-        var feature = e.features[0];
-        popup.setLngLat(e.lngLat)
-          .setHTML('<p>' + feature.properties.NoiseClass + ' dB</p>')
-          .addTo(afterMap);
-      });
-
-      afterMap.on('mouseleave', 'roadnight2012', function() {
-        afterMap.getCanvas().style.cursor = '';
-        popup.remove();
-      });
-
-      afterMap.on('mousemove', 'railnight2012', function(e) {
-        afterMap.getCanvas().style.cursor = 'pointer';
-        var feature = e.features[0];
-        popup.setLngLat(e.lngLat)
-          .setHTML('<p>' + feature.properties.NoiseClass + ' dB</p>')
-          .addTo(afterMap);
-      });
-
-      afterMap.on('mouseleave', 'railnight2012', function() {
-        afterMap.getCanvas().style.cursor = '';
-        popup.remove();
-      });
-    });
+                      beforeMap.on('mouseleave', 'railnight', function() {
+                        beforeMap.getCanvas().style.cursor = '';
+                        popup.remove();
+                      });
 
 
-    var map = new mapboxgl.Compare(beforeMap, afterMap, {});
+                      beforeMap.on('mousemove', 'roadnight', function(e) {
+                        beforeMap.getCanvas().style.cursor = 'pointer';
+                        var feature = e.features[0];
+                        popup.setLngLat(e.lngLat)
+                          .setHTML('<p>' + feature.properties.noiseclass + ' dB</p>')
+                          .addTo(beforeMap);
+                      });
+
+                      beforeMap.on('mouseleave', 'roadnight', function() {
+                        beforeMap.getCanvas().style.cursor = '';
+                        popup.remove();
+                      });
 
 
-    afterMap.on('click', 'population_ward', function(e) {
+                      beforeMap.on('mousemove', 'lhrnight', function(e) {
+                        beforeMap.getCanvas().style.cursor = 'pointer';
+                        var feature = e.features[0];
+                        popup.setLngLat(e.lngLat)
+                          .setHTML('<p>' + getdB(feature.properties.layer, 'n') + ' dB</p>')
+                          .addTo(beforeMap);
+                      });
 
-      var borough = e.features[0].properties.Borough;
-      var ward = e.features[0].properties.Name;
-      var areainhect = e.features[0].properties.Hectares;
-      var population = e.features[0].properties.Population;
-      var dispStr = 'London Borough     : <b>' + borough + '</b><br>';
-      dispStr += 'Ward Name          : <b>' + ward + '</b><br>';
-      dispStr += 'Total Population   : <b>' + (population.toFixed(2)).toString() + '</b><br>';
-      dispStr += 'Area in Hectares   : <b>' + (areainhect.toFixed(2)).toString() + '</b><br>';
-      dispStr += 'Population Density : <b>' + ((population / areainhect).toFixed(2)).toString() + '</b> per hectare';
-      document.getElementById('pd').innerHTML = dispStr;
+                      beforeMap.on('mouseleave', 'lhrnight', function() {
+                        beforeMap.getCanvas().style.cursor = '';
+                        popup.remove();
+                      });
 
-    });
+                      beforeMap.on('mousemove', 'roadday2012', function(e) {
+                        beforeMap.getCanvas().style.cursor = 'pointer';
+                        var feature = e.features[0];
+                        popup.setLngLat(e.lngLat)
+                          .setHTML('<p>' + feature.properties.NoiseClass + ' dB</p>')
+                          .addTo(beforeMap);
+                      });
 
-    beforeMap.on('click', 'population_ward', function(e) {
-      var borough = e.features[0].properties.Borough;
-      var ward = e.features[0].properties.Name;
-      var areainhect = e.features[0].properties.Hectares;
-      var population = e.features[0].properties.Population;
-      var dispStr = 'London Borough     : <b>' + borough + '</b><br>';
-      dispStr += 'Ward Name          : <b>' + ward + '</b><br>';
-      dispStr += 'Total Population   : <b>' + (population.toFixed(2)).toString() + '</b><br>';
-      dispStr += 'Area in Hectares   : <b>' + (areainhect.toFixed(2)).toString() + '</b><br>';
-      dispStr += 'Population Density : <b>' + ((population / areainhect).toFixed(2)).toString() + '</b> per hectare';
-      document.getElementById('pd').innerHTML = dispStr;
-    });
+                      beforeMap.on('mouseleave', 'roadday2012', function() {
+                        beforeMap.getCanvas().style.cursor = '';
+                        popup.remove();
+                      });
 
-    document.getElementById('DataLayers').addEventListener('change', function(e) {
+                      beforeMap.on('mousemove', 'railday2012', function(e) {
+                        beforeMap.getCanvas().style.cursor = 'pointer';
+                        var feature = e.features[0];
+                        popup.setLngLat(e.lngLat)
+                          .setHTML('<p>' + feature.properties.NoiseClass + ' dB</p>')
+                          .addTo(beforeMap);
+                      });
 
-      var selLayer = e.target.value;
-      if (e.target.checked) {
-        if (selLayer.includes('day')) {
-
-          if (selLayer.includes('2012')) {
-            beforeMap.setLayoutProperty(selLayer, 'visibility', 'visible');
-          } else {
-            afterMap.setLayoutProperty(selLayer, 'visibility', 'visible');
-          }
-
-        } else {
-
-          if (selLayer.includes('2012')) {
-            afterMap.setLayoutProperty(selLayer, 'visibility', 'visible');
-          } else {
-            beforeMap.setLayoutProperty(selLayer, 'visibility', 'visible');
-          }
+                      beforeMap.on('mouseleave', 'railday2012', function() {
+                        beforeMap.getCanvas().style.cursor = '';
+                        popup.remove();
+                      });
 
 
-        }
-      } else {
-        if (selLayer.includes('day')) {
-          if (selLayer.includes('2012')) {
-            beforeMap.setLayoutProperty(selLayer, 'visibility', 'none');
-          } else {
-            afterMap.setLayoutProperty(selLayer, 'visibility', 'none');
-          }
-        } else {
-          if (selLayer.includes('2012')) {
-            afterMap.setLayoutProperty(selLayer, 'visibility', 'none');
-          } else {
-            beforeMap.setLayoutProperty(selLayer, 'visibility', 'none');
-          }
-        }
-      }
+                    });
+            //Declare and Initialize the right Map
+                    var afterMap = new mapboxgl.Map({
+                      container: 'after',
+                      style: 'mapbox://styles/arunkoshy18/cjvsuuxjh0z9n1coy83u2sy5k',
+                      center: [-0.082387, 51.507383],
+                      zoom: 15.19,
+                      bearing: 158.43,
+                      pitch: 60.00
+                    });
+            //Code block to set the layer visibili
+                      afterMap.addControl(new mapboxgl.NavigationControl()); 
+                     afterMap.on('load', function() {
+                      afterMap.setLayoutProperty('roadday', 'visibility', 'visible');
+                      afterMap.setLayoutProperty('railday', 'visibility', 'none');
+                      afterMap.setLayoutProperty('lhrday', 'visibility', 'none');
+                      afterMap.setLayoutProperty('roadnight', 'visibility', 'none');
+                      afterMap.setLayoutProperty('railnight', 'visibility', 'none');
+                      afterMap.setLayoutProperty('lhrnight', 'visibility', 'none');
+
+                      afterMap.setLayoutProperty('roadnight2012', 'visibility', 'none');
+                      afterMap.setLayoutProperty('railnight2012', 'visibility', 'none');
+                      afterMap.setLayoutProperty('roadday2012', 'visibility', 'none');
+                      afterMap.setLayoutProperty('railday2012', 'visibility', 'none');
+            //Code block to set mouse hover effect 
+                      afterMap.on('mousemove', 'railday', function(e) {
+                        afterMap.getCanvas().style.cursor = 'pointer';
+                        var feature = e.features[0];
+                        popup.setLngLat(e.lngLat)
+                          .setHTML('<p>' + feature.properties.noiseclass + ' dB</p>')
+                          .addTo(afterMap);
+                      });
+
+                      afterMap.on('mouseleave', 'railday', function() {
+                        afterMap.getCanvas().style.cursor = '';
+                        popup.remove();
+                      });
+
+                      afterMap.on('mousemove', 'roadday', function(e) {
+                        afterMap.getCanvas().style.cursor = 'pointer';
+                        var feature = e.features[0];
+                        popup.setLngLat(e.lngLat)
+                          .setHTML('<p>' + feature.properties.noiseclass + ' dB</p>')
+                          .addTo(afterMap);
+                      });
+
+                      afterMap.on('mouseleave', 'roadday', function() {
+                        afterMap.getCanvas().style.cursor = '';
+                        popup.remove();
+                      });
+
+                      afterMap.on('mousemove', 'lhrday', function(e) {
+                        afterMap.getCanvas().style.cursor = 'pointer';
+                        var feature = e.features[0];
+                        popup.setLngLat(e.lngLat)
+                          .setHTML('<p>' + getdB(feature.properties.layer, 'd') + ' dB</p>')
+                          .addTo(afterMap);
+                      });
+
+                      afterMap.on('mouseleave', 'lhrday', function() {
+                        afterMap.getCanvas().style.cursor = '';
+                        popup.remove();
+                      });
+
+                      afterMap.on('mousemove', 'roadnight2012', function(e) {
+                        afterMap.getCanvas().style.cursor = 'pointer';
+                        var feature = e.features[0];
+                        popup.setLngLat(e.lngLat)
+                          .setHTML('<p>' + feature.properties.NoiseClass + ' dB</p>')
+                          .addTo(afterMap);
+                      });
+
+                      afterMap.on('mouseleave', 'roadnight2012', function() {
+                        afterMap.getCanvas().style.cursor = '';
+                        popup.remove();
+                      });
+
+                      afterMap.on('mousemove', 'railnight2012', function(e) {
+                        afterMap.getCanvas().style.cursor = 'pointer';
+                        var feature = e.features[0];
+                        popup.setLngLat(e.lngLat)
+                          .setHTML('<p>' + feature.properties.NoiseClass + ' dB</p>')
+                          .addTo(afterMap);
+                      });
+
+                      afterMap.on('mouseleave', 'railnight2012', function() {
+                        afterMap.getCanvas().style.cursor = '';
+                        popup.remove();
+                      });
+                    });
+
+        //Code to call the compare map functionality of mapboxgl 
+
+                    var map = new mapboxgl.Compare(beforeMap, afterMap, {});
+
+        //Code to populate the Population Details 
+                    afterMap.on('click', 'population_ward', function(e) {
+
+                      var borough = e.features[0].properties.Borough;
+                      var ward = e.features[0].properties.Name;
+                      var areainhect = e.features[0].properties.Hectares;
+                      var population = e.features[0].properties.Population;
+                      var dispStr = 'London Borough     : <b>' + borough + '</b><br>';
+                      dispStr += 'Ward Name          : <b>' + ward + '</b><br>';
+                      dispStr += 'Total Population   : <b>' + (population.toFixed(2)).toString() + '</b><br>';
+                      dispStr += 'Area in Hectares   : <b>' + (areainhect.toFixed(2)).toString() + '</b><br>';
+                      dispStr += 'Population Density : <b>' + ((population / areainhect).toFixed(2)).toString() + '</b> per hectare';
+                      document.getElementById('pd').innerHTML = dispStr;
+
+                    });
+
+                    beforeMap.on('click', 'population_ward', function(e) {
+                      var borough = e.features[0].properties.Borough;
+                      var ward = e.features[0].properties.Name;
+                      var areainhect = e.features[0].properties.Hectares;
+                      var population = e.features[0].properties.Population;
+                      var dispStr = 'London Borough     : <b>' + borough + '</b><br>';
+                      dispStr += 'Ward Name          : <b>' + ward + '</b><br>';
+                      dispStr += 'Total Population   : <b>' + (population.toFixed(2)).toString() + '</b><br>';
+                      dispStr += 'Area in Hectares   : <b>' + (areainhect.toFixed(2)).toString() + '</b><br>';
+                      dispStr += 'Population Density : <b>' + ((population / areainhect).toFixed(2)).toString() + '</b> per hectare';
+                      document.getElementById('pd').innerHTML = dispStr;
+                    });
+    //Code to toggle the visibility of layers 
+                    document.getElementById('DataLayers').addEventListener('change', function(e) {
+
+                      var selLayer = e.target.value;
+                      if (e.target.checked) {
+                        if (selLayer.includes('day')) {
+
+                          if (selLayer.includes('2012')) {
+                            beforeMap.setLayoutProperty(selLayer, 'visibility', 'visible');
+                          } else {
+                            afterMap.setLayoutProperty(selLayer, 'visibility', 'visible');
+                          }
+
+                        } else {
+
+                          if (selLayer.includes('2012')) {
+                            afterMap.setLayoutProperty(selLayer, 'visibility', 'visible');
+                          } else {
+                            beforeMap.setLayoutProperty(selLayer, 'visibility', 'visible');
+                          }
 
 
-
-    });
-  </script>
+                        }
+                      } else {
+                        if (selLayer.includes('day')) {
+                          if (selLayer.includes('2012')) {
+                            beforeMap.setLayoutProperty(selLayer, 'visibility', 'none');
+                          } else {
+                            afterMap.setLayoutProperty(selLayer, 'visibility', 'none');
+                          }
+                        } else {
+                          if (selLayer.includes('2012')) {
+                            afterMap.setLayoutProperty(selLayer, 'visibility', 'none');
+                          } else {
+                            beforeMap.setLayoutProperty(selLayer, 'visibility', 'none');
+                          }
+                        }
+                      }
 
 
 
-</body></html>
+                    });
+                  </script>
+
+
+
+                </body></html>
