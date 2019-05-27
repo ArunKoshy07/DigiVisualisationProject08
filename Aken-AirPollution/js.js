@@ -38,7 +38,7 @@ $(".pre").click(function(){
 });
 
 
-//Next page
+//Next Page
 $(".next").click(function(){
     page_turn(page+1);
 });
