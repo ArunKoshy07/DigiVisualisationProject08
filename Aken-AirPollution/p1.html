@@ -56,17 +56,18 @@
      .map-overlay .legendo3 .baro3 {
         height: 10px;
         width: 100%;
-        background: linear-gradient(to right, #cdf9fe, #026873);
+        background: linear-gradient(to right, #8ffd63,#35ae04,#fbe765,#fa9e14,#df0c67);
     }
+    
     .legendpm10 .barpm10 {
         height: 10px;
         width: 100%;
-        background: linear-gradient(to right, #fdfcd8, #595603);
+        background: linear-gradient(to right, #8ffd63,#35ae04,#fbe765,#fa9e14,#df0c67);
     }
     .legendpm25 .barpm25 {
         height: 10px;
         width: 100%;
-        background: linear-gradient(to right, #7F6588, #FA8965);
+        background: linear-gradient(to right, #8ffd63,#35ae04,#fbe765,#fa9e14,#df0c67);
     }
 
     .map-overlay input {
@@ -93,7 +94,6 @@
     #features {
         bottom: 10px;
         height: 150px;
-        /*margin-top: 20px;*/
         width: 250px;
     }
     #search
@@ -152,7 +152,7 @@
 <nav id="menu"></nav>
 <div id="search">
     <input id="searchText" type="text" style="width: 100px">
-    <input type="button" value="Search" onclick="btnSearch()">
+    <input type="button" value="Search" onclick="btnSearch()"><br>
 </div>
 <div id='map'></div>
 <div class='map-overlay1' id='features'><h3>Information Box：</h3><div id='pd'><p>Hover over a state!</p></div></div>
@@ -164,31 +164,29 @@
          <p class="credit">Air quality Data in Europe: <a href="https://data.europa.eu/euodp/data/dataset/data_interpolated-air-quality-data-2">European Union open data</a></p>
     </div>
     <div class='map-overlay-innero3'>
+        <h2>O3</h2>
         <div id='legendo3' class='legendo3'>
             <div class='baro3'></div>
-            <div>o3</div>
+            <div>0---------60----------120----------180----------240---------240+</div>
         </div>
     </div>
 
     <div class='map-overlay-innerpm10'>
+        <h2>PM10</h2>
         <div id='legendpm10' class='legendpm10'>
-            <h2>Casualty</h2>
             <div class='barpm10'></div>
-            <div class='label'>0</div>
-           <div class='label'>1</div>
-            <div class='label'>2</div>
-            <div class='label'>3</div>
-            <div class='label'>4</div>
-            <div class='label'>5+</div>
+            <div>0---------25-----------50-----------90----------180----------180+</div>
         </div>
     </div>
 
     <div class='map-overlay-innerpm25'>
+        <h2>PM2.5</h2>
         <div id='legendpm25' class='legendpm25'>
             <div class='barpm25'></div>
-            <div>pm2.5</div>
+            <div>0---------15-----------30------------55----------110----------110+</div>
         </div>
     </div>
+    <p class="credit">Evaluation criterion recommended by: <a href="http://www.airqualitynow.eu/about_indices_definition.php"> Air Quality in Europe</a></p>
 </div>
 
 <script src='//d3js.org/d3.v3.min.js' charset='utf-8'></script>
@@ -229,7 +227,7 @@
         map.setFilter('o3', filters);
         map.setFilter('o3label', filters);
 
-        // Set the label to the month
+        // Set the label to the year
         document.getElementById('year').textContent = years[year];
     }
     function filterpms10By(year) {
@@ -238,7 +236,7 @@
         map.setFilter('pm10', filters);
         map.setFilter('pm10label', filters);
 
-        // Set the label to the month
+        // Set the label to the year
         document.getElementById('year').textContent = years[year];
     }
     function filterpm25By(year) {
@@ -247,7 +245,7 @@
         map.setFilter('pm25', filters);
         map.setFilter('pm25label', filters);
 
-        // Set the label to the month
+        // Set the label to the year
         document.getElementById('year').textContent = years[year];
     }
     //var aaa=o3;
@@ -274,46 +272,36 @@
                         'interpolate',
                         ['linear'],
                         ['get', 'o3_p932'],
-                         80, '#cdf9fe',
+                         /*0, '#cdf9fe',
                          90, '#8cf1fd',
                          100, '#1ec9dc',
                          110, '#07bbcf',
                          120, '#24a0ae',
                          130, '#037581',
-                         150, '#026873'
+                         150, '#026873'*/
+                         60, '#8ffd63',
+                         120, '#35ae04',
+                         180, '#fbe765',
+                         240, '#fa9e14',
+                         250, '#df0c67'
                     ],
                     'circle-opacity': 0.75,
                     'circle-radius': [
                         'interpolate',
                         ['linear'],
                         ['get', 'o3_p932'],
-                         80, 1,
+                         50, 1,
                          90, 2,
                          100, 4,
                          110, 5,
                          120, 6,
                          130, 8,
-                         150, 10
+                         150, 10,
+                         200, 13
                     ]
                 }
             });
 
-           /* map.addLayer({
-                'id': 'o3label',
-                'type': 'symbol',
-                'source': 'o3Source',
-                'layout': {
-                    'text-field': ['concat', ['to-string', ['get', 'o3_p932']]],
-                    'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
-                    'text-size': 12
-                },
-                'paint': {
-                    'text-color': 'rgba(0,0,0,0.5)'
-                }
-            });*/
-
-            // Set filter to first month of the year
-            // 0 = 2006
             filtero3By(0);
 
             document.getElementById('slider').addEventListener('input', function(e) {
@@ -329,7 +317,7 @@
         d3.json('pm10.json', function(err, data) {
             if (err) throw err;
 
-            //第二个图层
+            //Add the second layer
             globalPM10Data=data;
             console.log("globalPM10Data:",globalPM10Data);
             map.addSource('pm10Source', {
@@ -346,46 +334,29 @@
                         'interpolate',
                         ['linear'],
                         ['get', 'pm10_avg'],
-                         16, '#fdfcd8',
-                         19, '#fbf8a7',
-                         22, '#f7f026',
-                         25, '#e7e008',
-                         27, '#beb809',
-                         30, '#8e8906',
-                         40, '#595603'
+                         25, '#8ffd63',
+                         50, '#35ae04',
+                         90, '#fbe765',
+                         180, '#fa9e14',
+                         190, '#df0c67'
                     ],
                     'circle-opacity': 0.75,
                     'circle-radius': [
                         'interpolate',
                         ['linear'],
                         ['get', 'pm10_avg'],
-                          16, 1,
-                         19, 2,
-                         22, 4,
-                         25, 5,
-                         27, 6,
-                         30, 8,
-                         40, 10
+                         15, 1,
+                         20, 2,
+                         25, 4,
+                         30, 5,
+                         35, 6,
+                         40, 8,
+                         50, 10,
+                         70, 13
                     ]
                 }
             });
 
-         /*   map.addLayer({
-                'id': 'pm10label',
-                'type': 'symbol',
-                'source': 'pm10Source',
-                'layout': {
-                    'text-field': ['concat', ['to-string', ['get', 'pm10_avg']]],
-                    'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
-                    'text-size': 12
-                },
-                'paint': {
-                    'text-color': 'rgba(0,0,0,0.5)'
-                }
-            });*/
-
-            // Set filter to first month of the year
-            // 0 = 2006
             filterpms10By(0);
 
             document.getElementById('slider').addEventListener('input', function(e) {
@@ -401,7 +372,7 @@
         d3.json('pm25.json', function(err, data) {
             if (err) throw err;
 
-            //第三个图层
+            //Add the third layer
             globalPM25Data=data;
             console.log("globalPM25Data:",globalPM25Data);
             map.addSource('pm25Source', {
@@ -418,46 +389,30 @@
                         'interpolate',
                         ['linear'],
                         ['get', 'avg15'],
-                          8, '#cefdce',
-                         11, '#abfcab',
-                         14, '#62f962',
-                         17, '#1bde1b',
-                         20, '#0bbc0b',
-                         25, '#058f05',
-                         30, '#025f02'
+                         15, '#8ffd63',
+                         30, '#35ae04',
+                         55, '#fbe765',
+                         110, '#fa9e14',
+                         120, '#df0c67'
                     ],
                     'circle-opacity': 0.75,
                     'circle-radius': [
                         'interpolate',
                         ['linear'],
                         ['get', 'avg15'],
-                         8, 1,
+                         5, 1,
                          11, 2,
                          14, 4,
                          17, 5,
                          20, 6,
                          25, 8,
-                         30, 10
+                         30, 10,
+                         40, 13
                     ]
                 }
             });
 
-           /* map.addLayer({
-                'id': 'pm25label',
-                'type': 'symbol',
-                'source': 'pm25Source',
-                'layout': {
-                    'text-field': ['concat', ['to-string', ['get', 'avg15']]],
-                    'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
-                    'text-size': 12
-                },
-                'paint': {
-                    'text-color': 'rgba(0,0,0,0.5)'
-                }
-            });*/
-
-            // Set filter to first month of the year
-            // 0 = 2006
+        
             filterpm25By(0);
 
             document.getElementById('slider').addEventListener('input', function(e) {
@@ -467,45 +422,71 @@
             });
         });
     });
-    //地图监听事件
+    //Add the information window
+    var CurLayer;
     map.on('mousemove', function(e) {
         var states = map.queryRenderedFeatures(e.point, {
             layers: ['o3','pm10','pm25']
         });
 
         if (states.length > 0) {
-            console.log("stats:",states);
-            document.getElementById('pd').innerHTML = '<h3><strong>' + states[0].properties.stat_name + '</strong></h3><p><strong><em>' + states[0].properties.o3_p932 + '</strong></em></p>';
+            if(states[0].layer.id=="o3")
+            {
+                console.log("o3");
+
+                document.getElementById('pd').innerHTML = '<h3><strong>' + states[0].properties.stat_name +
+                    '</strong></h3><p><strong><em>' + states[0].properties.o3_p932 + '</strong></em></p>';
+            }
+            if(states[0].layer.id=="pm10")
+            {
+
+                document.getElementById('pd').innerHTML = '<h3><strong>' + states[0].properties.stat_name +
+                    '</strong></h3><p><strong><em>' + states[0].properties.pm10_avg + '</strong></em></p>';
+            }
+            if(states[0].layer.id=="pm25")
+            {
+
+                document.getElementById('pd').innerHTML = '<h3><strong>' + states[0].properties.stat_name +
+                    '</strong></h3><p><strong><em>' + states[0].properties.avg15 + '</strong></em></p>';
+            }
+
+
         } else {
             document.getElementById('pd').innerHTML = '<p> </p>';
         }
     });
     map.getCanvas().style.cursor = 'default';
 
-    //图层切换
+
+
+    //Change layer
     var toggleableLayerIds = [ 'o3', 'pm10','pm25' ];
 
     for (var i = 0; i < toggleableLayerIds.length; i++) {
         var id = toggleableLayerIds[i];
 
-        var link = document.createElement('a');      /* 创建a标签 */
+        var link = document.createElement('a');      
         link.href = '#';
         link.className = 'active';
         link.textContent = id;
 
-        link.onclick = function (e) {                /* 设置onclick事件回调函数 */
-            var clickedLayer = this.textContent;     /* textContent 属性设置或返回指定节点的文本内容，以及它的所有后代 */
+        link.onclick = function (e) {                
+            var clickedLayer = this.textContent;     
             e.preventDefault();
             e.stopPropagation();
 
-            var visibility = map.getLayoutProperty(clickedLayer, 'visibility'); /* getLayoutProperty(layer, name) 返回指定style layer上名为name的layout属性的值*/
+            var visibility = map.getLayoutProperty(clickedLayer, 'visibility'); 
 
             if (visibility === 'visible') {
-                map.setLayoutProperty(clickedLayer, 'visibility', 'none'); /* setLayoutProperty(layer, name, value)设置指定layer上名为name的layou属性的值 */
+                map.setLayoutProperty(clickedLayer, 'visibility', 'none'); 
                 this.className = '';
+                CurLayer=clickedLayer;
+               
+
             } else {
                 this.className = 'active';
                 map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+              
             }
         };
 
@@ -514,26 +495,65 @@
     }
 
 
-    //搜索定位(判断名称，获得坐标，定位)
+    //Search function
     function btnSearch() {
         var searchName=document.getElementById("searchText").value;
-        console.log("globalO3Data:",globalO3Data);
         var SearchOK=false;
-        for(var i=0;i<globalO3Data.features.length;i++)
+        if(CurLayer=="o3")
         {
-            if(globalO3Data.features[i].properties.stat_name==searchName)
+            for(var i=0;i<globalO3Data.features.length;i++)
             {
-                var cordinates=globalO3Data.features[i].geometry.coordinates;
-                var xy = new mapboxgl.LngLat(cordinates[0], cordinates[1]);
-                map.flyTo({center:xy,  zoom:12});
-                SearchOK=true;
-                break;
+                if(globalO3Data.features[i].properties.stat_name==searchName)
+                {
+                    var cordinates=globalO3Data.features[i].geometry.coordinates;
+                    var xy = new mapboxgl.LngLat(cordinates[0], cordinates[1]);
+                    map.flyTo({center:xy,  zoom:12});
+                    SearchOK=true;
+                    break;
+                }
+            }
+            if(!SearchOK)
+            {
+                alert("Can not find that location can you be more specific");
             }
         }
-        if(!SearchOK)
+        if(CurLayer=="pm10")
         {
-            alert("Can not find that location can you be more specific");
+            for(var i=0;i<globalPM10Data.features.length;i++)
+            {
+                if(globalPM10Data.features[i].properties.stat_name==searchName)
+                {
+                    var cordinates=globalPM10Data.features[i].geometry.coordinates;
+                    var xy = new mapboxgl.LngLat(cordinates[0], cordinates[1]);
+                    map.flyTo({center:xy,  zoom:12});
+                    SearchOK=true;
+                    break;
+                }
+            }
+            if(!SearchOK)
+            {
+                alert("Can not find that location can you be more specific");
+            }
         }
+        if(CurLayer=="pm25")
+        {
+            for(var i=0;i<globalPM25Data.features.length;i++)
+            {
+                if(globalPM25Data.features[i].properties.stat_name==searchName)
+                {
+                    var cordinates=globalPM25Data.features[i].geometry.coordinates;
+                    var xy = new mapboxgl.LngLat(cordinates[0], cordinates[1]);
+                    map.flyTo({center:xy,  zoom:12});
+                    SearchOK=true;
+                    break;
+                }
+            }
+            if(!SearchOK)
+            {
+                alert("Can not find that location can you be more specific");
+            }
+        }
+
     }
 </script>
 

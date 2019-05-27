@@ -1,7 +1,7 @@
-var page; //当前页面
-var page_total;  //页面总数
+var page; 
+var page_total;  
 
-//初始化
+//initialize
 $('body').ready(function(){
     page = 1;
     page_total = $(".page").length;
@@ -11,7 +11,7 @@ $('body').ready(function(){
 });
 
 
-//翻页控制函数 p
+//page turn function
 page_turn = function page_turn(p){
     $(".page").hide();
     $(".page").css('opacity',0);
@@ -32,13 +32,13 @@ page_turn = function page_turn(p){
     }
 }
 
-//上页
+//Previous page
 $(".pre").click(function(){
     page_turn(page-1);
 });
 
 
-//下页
+//Next page
 $(".next").click(function(){
     page_turn(page+1);
 });
@@ -53,13 +53,13 @@ var app = {};
 option = null;
 option = {
     title: {
-        text: '折线图堆叠'
+        text: 'O3'
     },
     tooltip: {
         trigger: 'axis'
     },
     legend: {
-        data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+        data:['FR','GB','RO']
     },
     grid: {
         left: '3%',
@@ -75,41 +75,26 @@ option = {
     xAxis: {
         type: 'category',
         boundaryGap: false,
-        data: ['周一','周二','周三','周四','周五','周六','周日']
+        data: ['2006','2007','2008','2009','2010','2011','2012','2013','2014','2015']
     },
     yAxis: {
         type: 'value'
     },
     series: [
         {
-            name:'邮件营销',
+            name:'FR',
             type:'line',
-            stack: '总量',
-            data:[120, 132, 101, 134, 90, 230, 210]
+            data:[121.5646212,108.2682493,107.1339802,107.9998976,113.3666473,113.4739231,105.4192177,112.9884285,106.715444,112.7737231]
         },
         {
-            name:'联盟广告',
+            name:'GB',
             type:'line',
-            stack: '总量',
-            data:[220, 182, 191, 234, 290, 330, 310]
+            data:[97.47272727,82.72145,92.35861224,86.61246809,80.73334,87.08264706,83.08510638,89.15313533,84.89276767,83.29068728]
         },
         {
-            name:'视频广告',
+            name:'RO',
             type:'line',
-            stack: '总量',
-            data:[150, 232, 201, 154, 190, 330, 410]
-        },
-        {
-            name:'直接访问',
-            type:'line',
-            stack: '总量',
-            data:[320, 332, 301, 334, 390, 330, 320]
-        },
-        {
-            name:'搜索引擎',
-            type:'line',
-            stack: '总量',
-            data:[820, 932, 901, 934, 1290, 1330, 1320]
+            data:[100.075,110.91075,108.913,106.2491364,87.20146154,78.43847619,91.34139286,74.33443616,73.27331935,88.5951845]
         }
     ]
 };
@@ -124,31 +109,24 @@ if (option && typeof option === "object") {
 
 
 
-
-
-
-
-
-
 $('#c2').ready(function(){
 
     var dom = document.getElementById("c2");
     var myChart = echarts.init(dom);
     var app = {};
     option = null;
-    app.title = '多 X 轴示例';
     
     var colors = ['#5793f3', '#d14a61', '#675bba'];
     
     option = {
     title: {
-        text: '折线图堆叠'
+        text: 'PM10'
     },
     tooltip: {
         trigger: 'axis'
     },
     legend: {
-        data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+        data:['FR','GB','RO']
     },
     grid: {
         left: '3%',
@@ -164,41 +142,26 @@ $('#c2').ready(function(){
     xAxis: {
         type: 'category',
         boundaryGap: false,
-        data: ['周一','周二','周三','周四','周五','周六','周日']
+        data: ['2006','2007','2008','2009','2010','2011','2012','2013','2014','2015']
     },
     yAxis: {
         type: 'value'
     },
     series: [
         {
-            name:'邮件营销',
+            name:'FR',
             type:'line',
-            stack: '总量',
-            data:[120, 132, 101, 134, 90, 230, 210]
+            data:[19.92919681,25.42909231,23.22186486,24.98821608,23.78596939,24.3442878,21.81325837,21.7561467,17.7707819,19.19682202]
         },
         {
-            name:'联盟广告',
+            name:'GB',
             type:'line',
-            stack: '总量',
-            data:[220, 182, 191, 234, 290, 330, 310]
+            data:[24.04671739,22.00716,19.30018056,18.9339375,19.52463636,20.08988889,17.42892308,17.26054095,17.21348496,15.45690258]
         },
         {
-            name:'视频广告',
+            name:'RO',
             type:'line',
-            stack: '总量',
-            data:[150, 232, 201, 154, 190, 330, 410]
-        },
-        {
-            name:'直接访问',
-            type:'line',
-            stack: '总量',
-            data:[320, 332, 301, 334, 390, 330, 320]
-        },
-        {
-            name:'搜索引擎',
-            type:'line',
-            stack: '总量',
-            data:[820, 932, 901, 934, 1290, 1330, 1320]
+            data:[44.8118,39.04881818,32.29153846,29.32517143,25.036875,27.83575,27.93845,24.59518776,23.780755,23.96773039]
         }
     ]
 };
@@ -225,20 +188,19 @@ $('#c3').ready(function(){
     var myChart = echarts.init(dom);
     var app = {};
     option = null;
-    app.title = '多 X 轴示例';
     
     var colors = ['#5793f3', '#d14a61', '#675bba'];
     
     
     option = {
     title: {
-        text: '折线图堆叠'
+        text: 'PM2.5'
     },
     tooltip: {
         trigger: 'axis'
     },
     legend: {
-        data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+        data:['FR','GB','RO']
     },
     grid: {
         left: '3%',
@@ -254,41 +216,26 @@ $('#c3').ready(function(){
     xAxis: {
         type: 'category',
         boundaryGap: false,
-        data: ['周一','周二','周三','周四','周五','周六','周日']
+        data: ['2010','2011','2012','2013','2014','2015']
     },
     yAxis: {
         type: 'value'
     },
     series: [
         {
-            name:'邮件营销',
+            name:'FR',
             type:'line',
-            stack: '总量',
-            data:[120, 132, 101, 134, 90, 230, 210]
+            data:[17.66283333,17.75676923,15.76284722,15.1127251,11.80714834,12.80889211]
         },
         {
-            name:'联盟广告',
+            name:'GB',
             type:'line',
-            stack: '总量',
-            data:[220, 182, 191, 234, 290, 330, 310]
+            data:[13.09302703,13.66257895,12.54654286,12.06202397,12.10554297,9.780963537]
         },
         {
-            name:'视频广告',
+            name:'RO',
             type:'line',
-            stack: '总量',
-            data:[150, 232, 201, 154, 190, 330, 410]
-        },
-        {
-            name:'直接访问',
-            type:'line',
-            stack: '总量',
-            data:[320, 332, 301, 334, 390, 330, 320]
-        },
-        {
-            name:'搜索引擎',
-            type:'line',
-            stack: '总量',
-            data:[820, 932, 901, 934, 1290, 1330, 1320]
+            data:[15.502,19.98172727,20.69193333,15.34991943,14.84759629,17.1178615]
         }
     ]
 };
