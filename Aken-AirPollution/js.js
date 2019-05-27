@@ -53,7 +53,7 @@ var app = {};
 option = null;
 option = {
     title: {
-        text: 'O3'
+        text: 'µg.m-3'
     },
     tooltip: {
         trigger: 'axis'
@@ -120,7 +120,7 @@ $('#c2').ready(function(){
     
     option = {
     title: {
-        text: 'PM10'
+        text: 'µg.m-3'
     },
     tooltip: {
         trigger: 'axis'
@@ -194,7 +194,7 @@ $('#c3').ready(function(){
     
     option = {
     title: {
-        text: 'PM2.5'
+        text: 'µg.m-3'
     },
     tooltip: {
         trigger: 'axis'
