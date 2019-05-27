@@ -4,8 +4,10 @@
     <meta charset='utf-8' />
     <title>London Recycling</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<!--     /* mapbox script */ -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet'/>
+<!--     /* dimple script */ -->    
      <script src="d3.v4.min.js"></script>
      <script src="dimple.latest.min.js"></script>  
 <!--     /* style */ -->
@@ -136,10 +138,12 @@
   <div id='map'></div>
   <div class='map-overlay' id='features'><h2>Recycling Rates by London Borough</h2><div id='pd'><p>Click on a borough!<p> Use the slider to see how the rates have changed over the years <p> Data: <a href="https://data.london.gov.uk/dataset/household-waste-recycling-rates-borough">London Datastore</a></p>
   </div>
+<!--     /* setup slider */ -->    
   <div class='console'>
     <p>Year: <label id='year'>2008</label><p>
       <input id='slider' class='row' type='range' min='2008' max='2017' step='1' value='2008'/>
   </div>
+<!--     /* setup legend */ -->    
   <div class='plegend'></div>
   </div>
   <div class='legend'>
