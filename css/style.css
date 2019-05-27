@@ -5,37 +5,49 @@
     font-size:25px, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 .showcase{
-    background:url('../img/showcase.jpg') no-repeat;
+    background:url('../img/showcasecollage.jpg') no-repeat;
+/*    background:url('../img/Visualisation_Large');*/
     background-position: center;    
     height:600px;
     widows:100%;
     padding: 140px 100px;
     color: #fff;
+    border-color:black;
+
 }
 .showcase h1{
     font-size: 40px, 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    font-weight: 700;
-    font-style: italic;
+    font-weight: 700;    
+    font-style: italic;   
+    text-shadow: 2px 2px #FF0000;
+    border-width:3px;
+    border-color:#f44336;
+    
 /*    text-transform: uppercase;*/
 }
 .showcase h2{
     font-size: 30px, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-weight: 500;
+    text-shadow: 2px 2px black;
+    border-width:3px;
+    border-color:#f44336;  
 /*    text-transform: uppercase;*/
 }
 .showcase hr{
     width: 350px;
+    text-shadow: 2px 2px black;
     margin:auto;
     border-width:3px;
     border-color:#f44336;
 }
 .showcase p{
     font-size:16px, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    text-shadow: 2px 2px black;
     padding-bottom:20px;
 }
 .home{    
     padding:40px 0;
-    height:700px;
+    height:350px;
 }
 .home h2{
     font-size:35px;    
@@ -43,22 +55,22 @@
     margin:0;
 }
 .home .fa{
-    font-size:50px;
+    font-size:25px;
 }
 .air img{
     width:100%;
 }
 .air .fa{
-    font-size:50px;
+    font-size:25px;
 }
 .light .fa{
-    font-size:50px;
+    font-size:25px;
 }
 .waste .fa{
-    font-size:50px;
+    font-size:25px;
 }
 .noise .fa{
-    font-size:50px;
+    font-size:25px;
 }
 .noise iframe{
     height:800px;
