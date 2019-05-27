@@ -395,7 +395,7 @@ $('#c5').ready(function(){
     option = null;
     option = {
         title : {
-            text: 'Energy consumption changes ',
+            text: 'charts ',
             subtext: 'Wembley and Heathrow; year 2013 - 2019'
         },
         tooltip : {
